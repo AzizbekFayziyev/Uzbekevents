@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .cnt {
+        @apply max-w-[460px] mx-auto bg-black sm:my-12 min-h-dvh sm:rounded-3xl text-white overflow-hidden sm:shadow-xl;
+    }
+
+    .btn {
+        @apply flex justify-center items-center gap-2 bg-primary rounded-xl p-3 cursor-pointer border-b-2 border-b-hoverColor hover:bg-hoverColor hover:text-white transition-colors duration-300;
+    }
+}
