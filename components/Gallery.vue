@@ -1,28 +1,17 @@
 <template>
     <section>
-        <UI-Title>Gallery</UI-Title>
+        <UI-Title>{{profile.gallery_title}}</UI-Title>
 
-        <viewer :images="images" class="grid grid-cols-2 gap-4">
-            <img v-for="(src, id) in images"
-                class="cursor-pointer object-cover hover:brightness-50 transition-all duration-500" :key="id" :src="src"
+        <viewer :images="gallery" class="grid grid-cols-2 gap-4">
+            <img v-for="pic in gallery"
+                class="cursor-pointer object-cover hover:brightness-50 transition-all duration-500" :key="pic.id" :src="pic.image"
                 alt="gallery image" />
         </viewer>
     </section>
 </template>
 
 <script setup>
-const images = [
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-    "/gallery.jpg",
-]
+const profileStore = useProfileStore();
+
+const { profileData: profile, galleryData: gallery } = storeToRefs(profileStore);
 </script>

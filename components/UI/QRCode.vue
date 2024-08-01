@@ -1,16 +1,18 @@
 <template>
     <!-- Qr code card -->
     <Transition :duration="550" name="card">
-        <div v-if="show" class="bg-black/80 fixed left-0 top-0 w-full h-full z-50 transition-colors">
+        <div @click.stop="toggleCard" v-if="isCardOpen"
+            class="bg-black/80 fixed left-0 top-0 w-full h-full z-50 transition-colors">
 
-            <div style="transform: translateX(-50%)" class="content bg-white max-w-[500px] w-full sm:h-auto h-full sm:rounded-t-2xl absolute bottom-0
+            <div @click.stop style="transform: translateX(-50%)" class="content bg-white max-w-[500px] w-full sm:h-auto h-full sm:rounded-t-2xl absolute bottom-0
                 left-[50%] text-center">
 
-                <button @click="close"><i class="fa-solid fa-xmark text-3xl text-black absolute right-5"></i></button>
+                <button @click="toggleCard"><i
+                        class="fa-solid fa-xmark text-3xl text-black absolute right-5"></i></button>
 
-                <h4 class="text-black text-2xl my-6 font-medium">Davron Khusanov</h4>
+                <h4 class="text-black text-2xl my-6 font-medium">{{ profile.name }}</h4>
 
-                <NuxtImg width="260" height="260" class="mx-auto block" src="/qrcode.png" alt="qrcode" />
+                <VueQrcode width="280" height="280" class="mx-auto block" :value="siteUrl" />
 
                 <button @click="copyUrl" class="text-black mt-5 mb-8"><i class="fa-regular fa-copy"></i> copy
                     link</button>
@@ -21,7 +23,7 @@
 
                     <div class="flex justify-between">
                         <NuxtLink
-                            href="sms:?&body=%20I%20thought%20you%20may%20be%20interested%20in%20Davron%20Khusanov%27s%20OneTapConnect%20card.%20Click%20here%20and%20take%20a%20look.%20https://onetapconnect.com/uzbekevents-davronkhusanov/"
+                            :href="`sms:?&body=%20I%20thought%20you%20may%20be%20interested%20in%20${profile.name}%27s%20OneTapConnect%20card.%20Click%20here%20and%20take%20a%20look.%20${siteUrl}`"
                             target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
                             <i
                                 class="fa-regular fa-comments text-3xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[65px] h-[65px] grid place-content-center"></i>
@@ -29,9 +31,8 @@
                             <h5 class="text-black">By Text</h5>
                         </NuxtLink>
 
-                        <NuxtLink
-                            href="https://davronkhusanov.netlify.app/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjI2MjIiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D"
-                            target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
+                        <NuxtLink :href="`mailto:${profile.email}`" target="_blank"
+                            class="flex flex-col gap-3 items-center cursor-pointer">
                             <i
                                 class="fa-solid fa-envelope text-3xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[65px] h-[65px] grid place-content-center"></i>
 
@@ -52,24 +53,26 @@
 </template>
 
 <script setup>
-const { show, close } = defineProps({
-    show: {
-        type: Boolean,
-        required: true,
-        default: () => false
-    },
-    close: {
-        type: Function,
-        required: true,
-        default: () => { }
-    },
+// Vue qrcode
+import VueQrcode from 'vue-qrcode';
+
+let siteUrl = "";
+// Stores
+const appStore = useAppStore();
+const profileStore = useProfileStore();
+// Resf
+const { profileData: profile } = storeToRefs(profileStore);
+const { isCardOpen } = storeToRefs(appStore);
+// Actions
+const { toggleCard } = appStore;
+
+onMounted(() => {
+    siteUrl = window.location.href;
 });
 
 // Copy url
 const copyUrl = () => {
-    const url = window.location.href;
-
-    navigator.clipboard.writeText(url).then(() => {
+    navigator.clipboard.writeText(siteUrl).then(() => {
         alert('URL copied to clipboard');
     }).catch(err => {
         alert('Error copying URL: ', err.message);
@@ -82,7 +85,7 @@ const shareCurrentPage = () => {
         navigator.share({
             title: document.title,
             text: 'Check out this page:',
-            url: window.location.href,
+            url: siteUrl,
         }).then(() => {
             console.log('Page shared successfully');
         }).catch((error) => {

@@ -1,7 +1,7 @@
 <template>
     <section>
 
-        <UI-Title>About Uzbek Events</UI-Title>
+        <UI-Title>{{ about.about_event_title }}</UI-Title>
 
 
         <iframe class="w-full h-[240px] rounded-2xl" src="https://www.youtube.com/embed/hZ3jIRpU8AI?si=KLdBlc8FZ0WAYDHx"
@@ -10,9 +10,7 @@
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-        <p class="mt-4 text-lg">
-            {{ isFullText ? aboutText : aboutText.slice(0, 212) + "..." }}
-        </p>
+        <p v-html="about.about_event" class="mt-4 text-lg" :class="{ 'line-clamp-5': !isFullText }"></p>
 
         <button @click="isFullText = !isFullText" class="text-lg font-semibold mt-4">
             {{ toggleText }}
@@ -22,7 +20,9 @@
 </template>
 
 <script setup>
-const aboutText = "Uzbek Events – Это команда event-специалистов с общим стажем работы более 100 лет. Мы – профессионалы, специализирующиеся на бизнес - мероприятиях высокого класса.Наши принципы просты, но проверены временем, наши решения дерзки, но выверены до малейших деталей.";
+const profileStore = useProfileStore();
+const { profileData: about } = storeToRefs(profileStore);
+
 const isFullText = ref(false);
 
 const toggleText = computed(() => isFullText.value ? "Read less" : "Read more");

@@ -1,22 +1,23 @@
 <template>
     <!-- Social links -->
     <div class="flex justify-evenly items-center flex-wrap gap-8">
-        <NuxtLink href="mailto:office@zanzir.uz" target="_blank"
+        <NuxtLink :href="`mailto:${social.email}`" target="_blank"
             class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-solid fa-envelope text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
-
             <h5>Email</h5>
         </NuxtLink>
 
-        <NuxtLink href="tel:+998998009696" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="`tel:${social.phone_number}`" target="_blank"
+            class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-solid fa-phone text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Call</h5>
         </NuxtLink>
 
-        <NuxtLink href="sms:+998998009696" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="`sms:${social.phone_number}`" target="_blank"
+            class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-regular fa-comments text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
@@ -24,7 +25,7 @@
         </NuxtLink>
 
         <NuxtLink
-            href="sms:+998998009696?&body=Hey%20there,%20it%27s%20Davron%20Khusanov.%20Please%20click%20the%20link%20below%20so%20we%20can%20share%20contact%20info.%20Talk%20soon!%20https://onetapconnect.com/uzbekevents-davronkhusanov/"
+            :href="`sms:${social.phone_number}?&body=Hey%20there,%20it%27s%20${social.name}.%20Please%20click%20the%20link%20below%20so%20we%20can%20share%20contact%20info.%20Talk%20soon!%20${siteUrl}`"
             target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-regular fa-handshake text-2xl bg-hoverColor hover:bg-primary text-black hover:text-white transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
@@ -34,28 +35,32 @@
     </div>
 
     <div class="flex justify-evenly items-center flex-wrap mt-8">
-        <NuxtLink href="https://www.linkedin.com/in/uzbektraveller/?originalSubdomain=uz" target="_blank"
-            class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="social.linked_in" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-linkedin-in text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Linkedin</h5>
         </NuxtLink>
 
-        <NuxtLink href="https://www.instagram.com/zanziruz/" target="_blank"
-            class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="social.instagram" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-instagram text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Instagram</h5>
         </NuxtLink>
 
-        <NuxtLink href="https://www.youtube.com/channel/UC1l2RaKs8qiVX2JXJBHFTLg" target="_blank"
-            class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="social.youtube" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-youtube text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Youtube</h5>
+        </NuxtLink>
+
+        <NuxtLink :href="social.telegram" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
+            <i
+                class="fa-brands fa-telegram text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
+
+            <h5>Telegram</h5>
         </NuxtLink>
     </div>
 
@@ -69,14 +74,27 @@
                 SHARE</button>
         </div>
 
-        <NuxtLink href="https://zanzir.uz/" target="_blank" class="btn">
+        <NuxtLink :href="social.web_site" target="_blank" class="btn">
             Website
         </NuxtLink>
     </div>
 </template>
 
 <script setup>
-const { toggleCard } = defineProps(["toggleCard"]);
+let siteUrl = "";
+
+// Stores
+const appStore = useAppStore();
+const profileStore = useProfileStore();
+// Actions
+const { toggleCard } = appStore;
+// Refs
+const { profileData: social } = storeToRefs(profileStore);
+
+
+onMounted(() => {
+    siteUrl = window.location.href;
+});
 </script>
 
 <style scoped></style>

@@ -8,11 +8,20 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css",
         },
-        { rel: 'icon', type: 'image/png', href: '/hero.jpg' }
+        { rel: "icon", type: "image/png", href: "/hero.jpg" },
       ],
     },
   },
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image",
+    ["@pinia/nuxt", { autoImports: ["defineStore"] }],
+  ],
+  runtimeConfig: {
+    public: {
+      API_URL: process.env.API_URL,
+    },
+  },
 });

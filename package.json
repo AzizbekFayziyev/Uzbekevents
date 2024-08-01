@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
+    "@pinia/nuxt": "^0.5.2",
     "nuxt": "^3.12.4",
+    "pinia": "^2.2.0",
     "swiper": "^11.1.8",
     "v-viewer": "^3.0.13",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-qrcode": "^2.2.2"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",

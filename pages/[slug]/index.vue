@@ -1,11 +1,11 @@
 <template>
-  <div class="cnt">
+  <div v-if="!isLoading" class="cnt">
     <!-- Header -->
     <Bio />
 
     <div class="p-5">
       <!-- Social media -->
-      <Social :toggleCard="toggleCard" />
+      <Social />
 
       <!-- About section -->
       <UI-Divider icon-name="fa-solid fa-building" />
@@ -32,17 +32,28 @@
     </div>
 
     <!-- QR CODE -->
-    <UI-QRCode :show="isCardOpen" :close="toggleCard"/>
+    <UI-QRCode />
   </div>
+
+  <UI-Loading v-else />
 </template>
 
 <script setup>
-const isCardOpen = ref(false);
+const { params } = useRoute();
 
-const toggleCard = () => {
-  isCardOpen.value = !isCardOpen.value
-};
+// Stores
+const appStore = useAppStore();
+const profileStore = useProfileStore();
+// Refs
+const { isLoading } = storeToRefs(profileStore);
+// Actions
+const { toggleCard } = appStore;
+const { fetchData } = profileStore;
 
+// Fetch data
+onMounted(() => {
+  fetchData(params.slug);
+});
 </script>
 
 <style></style>

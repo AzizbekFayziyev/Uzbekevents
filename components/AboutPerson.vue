@@ -1,9 +1,12 @@
 <template>
     <section>
-        <UI-Title>About Davron Khusanov</UI-Title>
+        <UI-Title>{{profile.about_person_title}}</UI-Title>
 
-        <p class="text-lg">Davron Khusanov <br>
-            С опытом работы более 20 лет в таких сферах как образование, туризм, реклама, закупки, продажы, косметика,
-            видео продакшн, полиграфия и ивент индустрия.</p>
+        <p class="text-lg" v-html="profile.about_person"></p>
     </section>
 </template>
+
+<script setup>
+const profileStore = useProfileStore();
+const { profileData: profile } = storeToRefs(profileStore);
+</script>
