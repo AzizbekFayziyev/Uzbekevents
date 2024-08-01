@@ -1,4 +1,11 @@
 <template>
+  <!-- Seo -->
+
+  <Head>
+    <Title>{{profile.length ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinessConnect" }}</Title>
+    <Link rel="icon" :href="profile?.profile_image"></Link>
+  </Head>
+
   <div v-if="!isLoading" class="cnt">
     <!-- Header -->
     <Bio />
@@ -45,7 +52,7 @@ const { params } = useRoute();
 const appStore = useAppStore();
 const profileStore = useProfileStore();
 // Refs
-const { isLoading } = storeToRefs(profileStore);
+const { isLoading, profileData: profile } = storeToRefs(profileStore);
 // Actions
 const { toggleCard } = appStore;
 const { fetchData } = profileStore;

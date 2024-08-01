@@ -66,9 +66,10 @@
 
     <div class="mt-8">
         <div class="flex gap-[2px] mb-5">
-            <a href="/contact.vcf" class="btn w-[70%] rounded-r-none bg-hoverColor hover:bg-primary text-black"><i
+            <NuxtLink :href="`tel:${social.phone_number}`" target="_blank"
+                class="btn w-[70%] rounded-r-none bg-hoverColor hover:bg-primary text-black"><i
                     class="fa-solid fa-address-book"></i> ADD TO CONTACTS
-            </a>
+            </NuxtLink>
             <button @click="toggleCard" class="btn w-[40%] rounded-l-none hover:text-black"><i
                     class="fa-solid fa-share-nodes"></i>
                 SHARE</button>
