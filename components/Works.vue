@@ -11,7 +11,7 @@
             <SwiperSlide v-for="work in works" :key="work.id">
                 <NuxtLink :href="work.video_url" target="_blank"
                     class="rounded-2xl overflow-hidden relative cursor-pointer">
-                    <NuxtImg class="w-full h-[200px] object-cover select-none" :src="work.image" alt="works image" />
+                    <img class="w-full h-[200px] object-cover select-none" :src="work.image" alt="works image" />
 
                     <i class="fa-regular fa-circle-play absolute left-[50%] top-[50%] z-10 text-7xl"></i>
                 </NuxtLink>

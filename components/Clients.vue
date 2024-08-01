@@ -9,7 +9,7 @@
     }" :modules="[Pagination, Autoplay]">
         <SwiperSlide v-for="client in clients" :key="client.id">
             <div class="bg-white grayscale rounded-2xl p-2 h-[80px] grid items-center">
-                <NuxtImg class="w-full 1 pointer-events-none select-none" :src="client.image" alt="client" />
+                <img class="w-full 1 pointer-events-none select-none" :src="client.image" alt="client" />
             </div>
         </SwiperSlide>
     </Swiper>
