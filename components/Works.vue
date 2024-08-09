@@ -24,16 +24,19 @@
             <i class="fa-solid fa-x fixed top-8 right-3 text-3xl z-30 cursor-pointer"></i>
 
             <div class="select-none" @click.stop>
-                <i @click.stop="onSlideLeft" style="transform: translate(-50%);"
-                    class="fa-solid fa-chevron-left absolute sm:left-10 left-3 top-[48%] text-3xl cursor-pointer p-3"></i>
+                <span class="absolute top-2 left-2 text-lg">{{ video_index + 1 }} / {{ works.length }}</span>
+                <div @click.stop="onSlideLeft" class="absolute mt-5 p-2 left-0 top-0 h-full grid items-center cursor-pointer">
+                    <i class="fa-solid fa-chevron-left text-3xl pl-5"></i>
+                </div>
 
                 <iframe v-for="(work, id) in works" allowfullscreen
                     :class="{ hidden: id !== video_index, block: id === video_index }"
                     class="w-dvw sm:max-w-[500px] h-auto min-h-[300px]" :src="work.video_url" title="work video"
                     frameborder="0" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
-                <i @click.stop="onSlideRight" style="transform: translate(-50%);"
-                    class="fa-solid fa-chevron-right absolute sm:right-5 -right-6 top-[48%] text-3xl cursor-pointer p-3"></i>
+                <div @click.stop="onSlideRight" class="absolute mt-5 p-2 right-0 top-0 h-full grid items-center cursor-pointer">
+                    <i class="fa-solid fa-chevron-right text-3xl"></i>
+                </div>
             </div>
         </div>
     </transition>
@@ -56,7 +59,7 @@ const onModalOpen = (index) => {
 }
 
 const onSlideLeft = () => {
-    if(video_index.value !== 0) {
+    if (video_index.value !== 0) {
         video_index.value -= 1;
     } else {
         video_index.value = works.value.length - 1;
@@ -65,7 +68,7 @@ const onSlideLeft = () => {
 
 const onSlideRight = () => {
     if (video_index.value !== works.value.length - 1) {
-        video_index.value += 1;        
+        video_index.value += 1;
     } else {
         video_index.value = 0;
     }
