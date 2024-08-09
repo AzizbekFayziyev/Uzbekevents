@@ -12,5 +12,5 @@ body {
 }
 
 .swiper-pagination {
-    @apply bottom-[10px];
+    @apply bottom-[200px];
 }

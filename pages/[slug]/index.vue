@@ -3,8 +3,6 @@
 
   <Head>
     <Title>{{ profile.length ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinessConnect" }}</Title>
-    <Link rel="icon" :href="profile?.profile_image">
-    </Link>
   </Head>
 
   <div v-if="!isLoading" class="cnt">

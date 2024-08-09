@@ -5,7 +5,7 @@
     <!-- Bio -->
     <div class="flex flex-col items-center gap-2">
         <viewer :images="'/hero.jpg'">
-            <img class="w-[155px] h-[155px] rounded-full border-[3px] border-white -mt-20" :src="bio.profile_image"
+            <img class="w-[155px] h-[155px] rounded-full border-[3px] border-white -mt-20 object-cover" :src="bio.profile_image"
                 :alt="bio.name + ' profile photo'" />
         </viewer>
 

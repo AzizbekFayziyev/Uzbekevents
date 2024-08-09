@@ -1,23 +1,21 @@
 <template>
     <!-- Social links -->
     <div class="flex justify-evenly items-center flex-wrap gap-8">
-        <NuxtLink :href="`mailto:${social.email}`" target="_blank"
-            class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="`mailto:${social.email}`"
+            :class="`flex flex-col gap-3 items-center cursor-pointer ${social.email === null && 'hidden'}`">
             <i
                 class="fa-solid fa-envelope text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
             <h5>Email</h5>
         </NuxtLink>
 
-        <NuxtLink :href="`tel:${social.phone_number}`" target="_blank"
-            class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="`tel:${social.phone_number}`" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-solid fa-phone text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Call</h5>
         </NuxtLink>
 
-        <NuxtLink :href="`sms:${social.phone_number}`" target="_blank"
-            class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="`sms:${social.phone_number}`" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-regular fa-comments text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
@@ -26,7 +24,7 @@
 
         <NuxtLink
             :href="`sms:${social.phone_number}?&body=Hey%20there,%20it%27s%20${social.name}.%20Please%20click%20the%20link%20below%20so%20we%20can%20share%20contact%20info.%20Talk%20soon!%20${siteUrl}`"
-            target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
+            class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-regular fa-handshake text-2xl bg-hoverColor hover:bg-primary text-black hover:text-white transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
@@ -34,29 +32,30 @@
         </NuxtLink>
     </div>
 
-    <div class="flex justify-evenly items-center flex-wrap mt-8">
-        <NuxtLink :href="social.linked_in" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
+    <div class="flex justify-center gap-8 items-center flex-wrap mt-8">
+        <NuxtLink :href="social.linked_in" target="_blank" :class="{ hidden: social.linked_in.trim() == '' }"
+            class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-linkedin-in text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Linkedin</h5>
         </NuxtLink>
 
-        <NuxtLink :href="social.instagram" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="social.instagram" target="_blank" :class="{ hidden: social.instagram.trim() == '' }" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-instagram text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Instagram</h5>
         </NuxtLink>
 
-        <NuxtLink :href="social.youtube" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="social.youtube" target="_blank"  :class="{ hidden: social.youtube.trim() == '' }" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-youtube text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Youtube</h5>
         </NuxtLink>
 
-        <NuxtLink :href="social.telegram" target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="social.telegram" target="_blank"  :class="{ hidden: social.telegram.trim() == '' }" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-telegram text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
@@ -91,7 +90,6 @@ const profileStore = useProfileStore();
 const { toggleCard } = appStore;
 // Refs
 const { profileData: social } = storeToRefs(profileStore);
-
 
 onMounted(() => {
     siteUrl = window.location.href;
