@@ -24,16 +24,16 @@
             <i class="fa-solid fa-x fixed top-8 right-3 text-3xl z-30 cursor-pointer"></i>
 
             <div class="select-none" @click.stop>
-                <i @click="onSlideLeft" style="transform: translate(-50%);"
-                    class="fa-solid fa-chevron-left fixed left-5 top-[50%] text-3xl cursor-pointer"></i>
+                <i @click.stop="onSlideLeft" style="transform: translate(-50%);"
+                    class="fa-solid fa-chevron-left absolute sm:left-10 left-3 top-[48%] text-3xl cursor-pointer p-3"></i>
 
                 <iframe v-for="(work, id) in works" allowfullscreen
                     :class="{ hidden: id !== video_index, block: id === video_index }"
-                    class="w-full sm:min-w-[500px] h-auto min-h-[300px]" :src="work.video_url" title="work video"
+                    class="w-dvw sm:max-w-[500px] h-auto min-h-[300px]" :src="work.video_url" title="work video"
                     frameborder="0" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
-                <i @click="onSlideRight" style="transform: translate(-50%);"
-                    class="fa-solid fa-chevron-right fixed right-5 top-[50%] text-3xl cursor-pointer"></i>
+                <i @click.stop="onSlideRight" style="transform: translate(-50%);"
+                    class="fa-solid fa-chevron-right absolute sm:right-5 -right-6 top-[48%] text-3xl cursor-pointer p-3"></i>
             </div>
         </div>
     </transition>
