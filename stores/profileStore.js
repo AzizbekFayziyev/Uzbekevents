@@ -5,7 +5,9 @@ export const useProfileStore = defineStore("profile-store", () => {
   const projectsData = ref([]);
   const galleryData = ref([]);
   const isLoading = ref(true);
-  const url = "https://apiqrwebevents.pythonanywhere.com/api";
+  // API URL
+  const config = useRuntimeConfig();
+  const url = config.public.API_URL;
 
   // Actions
   const fetchData = async (slug) => {
@@ -18,8 +20,10 @@ export const useProfileStore = defineStore("profile-store", () => {
       clientsData.value = clients;
       projectsData.value = projects;
       galleryData.value = gallery_images;
+
+      return res;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 

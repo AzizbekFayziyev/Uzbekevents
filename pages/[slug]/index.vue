@@ -2,7 +2,7 @@
   <!-- Seo -->
 
   <Head>
-    <Title>{{ profile?.name + " | UzbekBusinessConnect" }}</Title>
+    <Title>{{ profile?.slug ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinnessConnect" }}</Title>
   </Head>
 
   <div v-if="!isLoading" class="cnt">
@@ -59,7 +59,14 @@ const { toggleCard } = appStore;
 const { fetchData } = profileStore;
 
 // Fetch data
-await fetchData(params.slug);
+const res = await fetchData(params.slug);
+
+// Create error
+if (!res) {
+  throw createError({ statusCode: 404, statusMessage: "User not found!", fatal: true })
+}
+
+
 </script>
 
 <style></style>
