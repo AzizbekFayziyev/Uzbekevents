@@ -2,7 +2,7 @@
   <!-- Seo -->
 
   <Head>
-    <Title>{{ profile.length ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinessConnect" }}</Title>
+    <Title>{{ profile?.name + " | UzbekBusinessConnect" }}</Title>
   </Head>
 
   <div v-if="!isLoading" class="cnt">
@@ -35,6 +35,8 @@
       <!-- Share -->
       <UI-Divider icon-name="fa-solid fa-share-from-square" />
       <button @click="toggleCard" class="btn w-full">SHARE MY INFO</button>
+      <NuxtLink href="#" class="rounded-xl py-2 px-4 mx-auto block border mt-5 text-base max-w-max">Get Your Connect
+        Card</NuxtLink>
     </div>
 
     <!-- QR CODE -->
@@ -57,9 +59,7 @@ const { toggleCard } = appStore;
 const { fetchData } = profileStore;
 
 // Fetch data
-onMounted(() => {
-  fetchData(params.slug);
-});
+await fetchData(params.slug);
 </script>
 
 <style></style>

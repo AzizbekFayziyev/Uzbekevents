@@ -20,10 +20,12 @@ export const useProfileStore = defineStore("profile-store", () => {
       galleryData.value = gallery_images;
     } catch (error) {
       console.log(error.message);
-    } finally {
-      isLoading.value = false;
     }
   };
+
+  onMounted(() => {
+    isLoading.value = false;
+  });
 
   return {
     fetchData,
