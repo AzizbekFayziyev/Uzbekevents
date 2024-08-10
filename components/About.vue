@@ -3,7 +3,7 @@
 
         <UI-Title>{{ about.about_event_title }}</UI-Title>
 
-        <p v-html="about.about_event" class="mt-4 text-lg" :class="{ 'line-clamp-5': !isFullText }"></p>
+        <div class="content" v-html="about.about_event" :class="{ 'line-clamp-5': !isFullText }"></div>
 
         <button @click="isFullText = !isFullText" class="text-lg font-semibold mt-4">
             {{ toggleText }}
@@ -20,3 +20,10 @@ const isFullText = ref(false);
 
 const toggleText = computed(() => isFullText.value ? "Read less" : "Read more");
 </script>
+
+<style scoped>
+.content,
+.content * {
+    @apply !text-white !bg-transparent text-lg;
+}
+</style>
