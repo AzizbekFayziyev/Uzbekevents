@@ -35,7 +35,8 @@
       <!-- Share -->
       <UI-Divider icon-name="fa-solid fa-share-from-square" />
       <button @click="toggleCard" class="btn w-full">SHARE MY INFO</button>
-      <NuxtLink :href="profile.main_link" class="rounded-xl py-2 px-4 mx-auto block border mt-5 text-base max-w-max">Get Your Connect
+      <NuxtLink v-if="profile?.main_link !== null" :href="profile?.main_link"
+        class="rounded-xl py-2 px-4 mx-auto block border mt-5 text-base max-w-max" target="_blank">Get Your Connect
         Card</NuxtLink>
     </div>
 
