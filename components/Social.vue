@@ -1,6 +1,6 @@
 <template>
     <!-- Social links -->
-    <div class="flex justify-evenly items-center flex-wrap gap-8">
+    <div class="flex justify-evenly items-center sm:gap-8 gap-4">
         <NuxtLink :href="`mailto:${social.email}`"
             :class="`flex flex-col gap-3 items-center cursor-pointer ${social.email === null && 'hidden'}`">
             <i
@@ -32,7 +32,7 @@
         </NuxtLink>
     </div>
 
-    <div class="flex justify-center gap-8 items-center flex-wrap mt-8">
+    <div class="flex justify-evenly sm:gap-8 gap-4 items-center mt-8">
         <NuxtLink :href="social.linked_in" target="_blank" :class="{ hidden: social.linked_in.trim() == '' }"
             class="flex flex-col gap-3 items-center cursor-pointer">
             <i
