@@ -41,21 +41,24 @@
             <h5>Linkedin</h5>
         </NuxtLink>
 
-        <NuxtLink :href="social.instagram" target="_blank" :class="{ hidden: social.instagram.trim() == '' }" class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="social.instagram" target="_blank" :class="{ hidden: social.instagram.trim() == '' }"
+            class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-instagram text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Instagram</h5>
         </NuxtLink>
 
-        <NuxtLink :href="social.youtube" target="_blank"  :class="{ hidden: social.youtube.trim() == '' }" class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="social.youtube" target="_blank" :class="{ hidden: social.youtube.trim() == '' }"
+            class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-youtube text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Youtube</h5>
         </NuxtLink>
 
-        <NuxtLink :href="social.telegram" target="_blank"  :class="{ hidden: social.telegram.trim() == '' }" class="flex flex-col gap-3 items-center cursor-pointer">
+        <NuxtLink :href="social.telegram" target="_blank" :class="{ hidden: social.telegram.trim() == '' }"
+            class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-brands fa-telegram text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
@@ -65,7 +68,7 @@
 
     <div class="mt-8">
         <div class="flex gap-[2px] mb-5">
-            <NuxtLink :href="`tel:${social.phone_number}`" target="_blank"
+            <NuxtLink :href="social.contact_file !== null ? social.contact_file : `tel:${social.phone_number}`"
                 class="btn w-[70%] rounded-r-none bg-hoverColor hover:bg-primary text-black"><i
                     class="fa-solid fa-address-book"></i> ADD TO CONTACTS
             </NuxtLink>
