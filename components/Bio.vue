@@ -11,7 +11,7 @@
 
         <h1 class="font-bold text-3xl">{{ bio.name }}</h1>
 
-        <NuxtLink class="text-secondary font-medium" :href="bio.web_site" target="_blank">{{ bio.company_name }}
+        <NuxtLink class="text-secondary font-medium" :href="bio.company_url" target="_blank">{{ bio.company_name }}
         </NuxtLink>
 
         <p class="font-bold mt-2 text-sm">{{ bio.job_title }}</p>

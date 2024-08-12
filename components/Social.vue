@@ -68,12 +68,14 @@
 
     <div class="mt-8">
         <div class="flex gap-[2px] mb-5">
-            <NuxtLink :href="social.contact_file !== null ? social.contact_file : `tel:${social.phone_number}`"
-                class="btn w-[70%] rounded-r-none bg-hoverColor hover:bg-primary text-black"><i
-                    class="fa-solid fa-address-book"></i> ADD TO CONTACTS
+            <NuxtLink target="_blank"
+                :href="social.contact_file !== null ? social.contact_file : `tel:${social.phone_number}`"
+                class="btn w-[70%] rounded-r-none bg-hoverColor hover:bg-primary text-black">
+                <i class="fa-solid fa-address-book"></i> ADD TO CONTACTS
             </NuxtLink>
-            <button @click="toggleCard" class="btn w-[40%] rounded-l-none hover:text-black"><i
-                    class="fa-solid fa-share-nodes"></i>
+
+            <button @click="toggleCard" class="btn w-[40%] rounded-l-none hover:text-black">
+                <i class="fa-solid fa-share-nodes"></i>
                 SHARE</button>
         </div>
 
