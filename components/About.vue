@@ -23,7 +23,8 @@ const toggleText = computed(() => isFullText.value ? "Read less" : "Read more");
 
 <style scoped>
 .content,
-.content * {
-    @apply !text-white !bg-transparent text-lg;
+.content *,
+.content span {
+    @apply !text-white !bg-transparent !text-lg;
 }
 </style>

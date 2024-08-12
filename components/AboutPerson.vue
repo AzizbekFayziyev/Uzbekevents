@@ -14,6 +14,6 @@ const { profileData: profile } = storeToRefs(profileStore);
 <style scoped>
 .content,
 .content * {
-    @apply !text-white !bg-transparent text-lg;
+    @apply !text-white !bg-transparent !text-lg;
 }
 </style>
