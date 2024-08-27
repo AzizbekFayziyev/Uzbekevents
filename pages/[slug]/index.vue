@@ -35,7 +35,7 @@
       <!-- Share -->
       <UI-Divider icon-name="fa-solid fa-share-from-square" />
       <button @click="toggleCard" class="btn w-full">SHARE MY INFO</button>
-      <NuxtLink v-if="profile?.main_link !== null" :href="profile?.main_link"
+      <NuxtLink href="https://uzbekbusinessconnect.com"
         class="rounded-xl py-2 px-4 mx-auto block border mt-5 text-base max-w-max" target="_blank">Get Your Connect
         Card</NuxtLink>
     </div>
