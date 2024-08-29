@@ -6,6 +6,8 @@
         disableOnInteraction: false,
     }" :pagination="{
         clickable: true,
+        dynamicMainBullets: 6,
+        dynamicBullets: 6
     }" :modules="[Pagination, Autoplay]">
         <SwiperSlide v-for="client in clients" :key="client.id">
             <div class="bg-white rounded-2xl p-2 min-h-[120px] overflow-hidden grid items-center">
