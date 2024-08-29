@@ -1,22 +1,31 @@
 export const useProfileStore = defineStore("profile-store", () => {
+  // API URL
+  const config = useRuntimeConfig();
+  const url = config.public.API_URL;
   // States
   const profileData = ref({});
   const clientsData = ref([]);
   const projectsData = ref([]);
   const galleryData = ref([]);
-  const isLoading = ref(true);
-  // API URL
-  const config = useRuntimeConfig();
-  const url = config.public.API_URL;
+  // Colors
+  const colors = ref({
+    primary: "#692B58",
+    hoverColor: "#00D4C5",
+    secondary: "#F9BF41",
+  });
+  // Html
+  const htmlData = ref(null);
 
   // Actions
   const fetchData = async (slug) => {
     try {
       const res = await $fetch(url + "/profile/" + slug);
 
-      const { clients, projects, gallery_images, ...newObj } = res;
+      const { clients, projects, gallery_images, color, html, ...data } = res;
 
-      profileData.value = newObj;
+      colors.value.primary = color;
+      htmlData.value = html;
+      profileData.value = data;
       clientsData.value = clients;
       projectsData.value = projects;
       galleryData.value = gallery_images;
@@ -27,10 +36,6 @@ export const useProfileStore = defineStore("profile-store", () => {
     }
   };
 
-  onMounted(() => {
-    isLoading.value = false;
-  });
-
   return {
     fetchData,
     profileData,
@@ -38,6 +43,7 @@ export const useProfileStore = defineStore("profile-store", () => {
     profileData,
     projectsData,
     galleryData,
-    isLoading,
+    colors,
+    htmlData,
   };
 });

@@ -7,7 +7,11 @@
       :content="profile?.slug ? profile?.name + ' | UzbekBusinessConnect' : 'UzbekBusinnessConnect'" />
   </Head>
 
-  <div class="cnt">
+  <div v-if="htmlData !== null" v-html="htmlData">
+
+  </div>
+
+  <div v-else class="cnt">
     <!-- Header -->
     <Bio />
 
@@ -45,8 +49,6 @@
     <!-- QR CODE -->
     <UI-QRCode />
   </div>
-
-
 </template>
 
 <script setup>
@@ -56,13 +58,17 @@ const { params } = useRoute();
 const appStore = useAppStore();
 const profileStore = useProfileStore();
 // Refs
-const { isLoading, profileData: profile } = storeToRefs(profileStore);
+const { profileData: profile, colors, htmlData } = storeToRefs(profileStore);
 // Actions
 const { toggleCard } = appStore;
 const { fetchData } = profileStore;
 
 // Fetch data
 const res = await fetchData(params.slug);
+
+onMounted(() => {
+  document.documentElement.style.setProperty('--primary', colors.value.primary);
+})
 
 // Create error
 if (!res) {

@@ -5,6 +5,12 @@ body {
     font-family: "Archivo", sans-serif;
 }
 
+:root {
+    --hoverColor: #00D4C5;
+    --primary: #692B58;
+    --secondary: #F9BF41;
+}
+
 /* Customize pagination in swiper */
 
 .swiper-pagination-bullet {

@@ -11,8 +11,7 @@
 
                 <div @click="toggleCard" style="transform: translateY(-50%)"
                     class="absolute top-[60%] right-[-90px] flex flex-col items-center gap-2 cursor-pointer">
-                    <div
-                        class="bg-primary hover:bg-hoverColor transition-colors p-2 px-3 max-w-max rounded-full">
+                    <div :class="`bg-primary hover:bg-hoverColor transition-colors p-2 px-3 max-w-max rounded-full`">
                         <i class="fa-solid fa-qrcode text-xl"></i>
                     </div>
                     <span class="text-sm">QR code</span>
@@ -35,6 +34,7 @@ const appStore = useAppStore();
 const profileStore = useProfileStore();
 // Actions
 const { toggleCard } = appStore;
+
 // Refs
 const { profileData: bio } = storeToRefs(profileStore);
 </script>

@@ -5,9 +5,9 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
-        hoverColor: "#00D4C5",
-        primary: "#692B58",
-        secondary: "#F9BF41",
+        hoverColor: "var(--hoverColor)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
       },
     },
   },
