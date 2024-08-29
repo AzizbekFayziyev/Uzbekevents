@@ -5,7 +5,7 @@
     <Title>{{ profile?.slug ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinnessConnect" }}</Title>
   </Head>
 
-  <div v-if="!isLoading" class="cnt">
+  <div class="cnt">
     <!-- Header -->
     <Bio />
 
@@ -44,7 +44,7 @@
     <UI-QRCode />
   </div>
 
-  <UI-Loading v-else />
+
 </template>
 
 <script setup>
