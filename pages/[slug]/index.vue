@@ -3,6 +3,8 @@
 
   <Head>
     <Title>{{ profile?.slug ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinnessConnect" }}</Title>
+    <Meta name="og:title"
+      :content="profile?.slug ? profile?.name + ' | UzbekBusinessConnect' : 'UzbekBusinnessConnect'" />
   </Head>
 
   <div class="cnt">

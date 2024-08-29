@@ -5,11 +5,22 @@
     <!-- Bio -->
     <div class="flex flex-col items-center gap-2">
         <viewer :images="'/hero.jpg'">
-            <img class="w-[155px] h-[155px] rounded-full border-[3px] border-white -mt-20 object-cover bg-black"
-                :src="bio.profile_image" alt="" />
+            <div class="-mt-20 relative">
+                <img class="w-[155px] h-[155px] rounded-full border-[3px] border-white object-cover bg-black"
+                    :src="bio.profile_image" alt="" />
+
+                <div @click="toggleCard" style="transform: translateY(-50%)"
+                    class="absolute top-[60%] right-[-90px] flex flex-col items-center gap-2 cursor-pointer">
+                    <div
+                        class="bg-primary hover:bg-hoverColor transition-colors p-2 px-3 max-w-max rounded-full">
+                        <i class="fa-solid fa-qrcode text-xl"></i>
+                    </div>
+                    <span class="text-sm">QR code</span>
+                </div>
+            </div>
         </viewer>
 
-        <h1 class="font-bold text-3xl">{{ bio.name }}</h1>
+        <h1 class="font-bold text-3xl text-center">{{ bio.name }}</h1>
 
         <NuxtLink class="text-secondary font-medium" :href="bio.company_url" target="_blank">{{ bio.company_name }}
         </NuxtLink>
@@ -19,7 +30,11 @@
 </template>
 
 <script setup>
+// Stores
+const appStore = useAppStore();
 const profileStore = useProfileStore();
-
+// Actions
+const { toggleCard } = appStore;
+// Refs
 const { profileData: bio } = storeToRefs(profileStore);
 </script>
