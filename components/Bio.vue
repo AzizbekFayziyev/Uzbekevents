@@ -9,7 +9,7 @@
                 <img class="w-[155px] h-[155px] rounded-full border-[3px] border-white object-cover bg-black"
                     :src="bio?.profile_image" alt="" />
 
-                <a :href="bio?.map" target="_blank" style="transform: translateY(-50%)"
+                <a v-if="bio?.map" :href="bio?.map" target="_blank" style="transform: translateY(-50%)"
                     class="absolute top-[60%] right-[-90px] flex flex-col items-center gap-2 cursor-pointer">
                     <div
                         class="bg-primary hover:bg-hoverColor transition-colors min-w-10 h-10 grid place-content-center max-w-max rounded-full">
