@@ -7,15 +7,16 @@
         <viewer :images="'/hero.jpg'">
             <div class="-mt-20 relative">
                 <img class="w-[155px] h-[155px] rounded-full border-[3px] border-white object-cover bg-black"
-                    :src="bio.profile_image" alt="" />
+                    :src="bio?.profile_image" alt="" />
 
-                <div @click="toggleCard" style="transform: translateY(-50%)"
+                <a :href="bio?.map" target="_blank" style="transform: translateY(-50%)"
                     class="absolute top-[60%] right-[-90px] flex flex-col items-center gap-2 cursor-pointer">
-                    <div :class="`bg-primary hover:bg-hoverColor transition-colors p-2 px-3 max-w-max rounded-full`">
-                        <i class="fa-solid fa-qrcode text-xl"></i>
+                    <div
+                        class="bg-primary hover:bg-hoverColor transition-colors min-w-10 h-10 grid place-content-center max-w-max rounded-full">
+                        <i class="fa-solid fa-location-dot text-xl"></i>
                     </div>
-                    <span class="text-sm">QR code</span>
-                </div>
+                    <span class="text-sm">Location</span>
+                </a>
             </div>
         </viewer>
 

@@ -1,6 +1,6 @@
 <template>
     <!-- Social links -->
-    <div class="flex justify-evenly items-center sm:gap-8 gap-4">
+    <div class="flex justify-evenly items-center sm:gap-8 gap-6">
         <NuxtLink :href="`mailto:${social.email}`"
             :class="`flex flex-col gap-3 items-center cursor-pointer ${social.email === null && 'hidden'}`">
             <i
@@ -44,7 +44,7 @@
         <NuxtLink :href="social.instagram" target="_blank" :class="{ hidden: social.instagram.trim() == '' }"
             class="flex flex-col gap-3 items-center cursor-pointer">
             <i
-                class="fa-brands fa-instagram text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
+                class="fa-brands fa-instagram text-3xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Instagram</h5>
         </NuxtLink>
@@ -60,9 +60,20 @@
         <NuxtLink :href="social.telegram" target="_blank" :class="{ hidden: social.telegram.trim() == '' }"
             class="flex flex-col gap-3 items-center cursor-pointer">
             <i
-                class="fa-brands fa-telegram text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
+                class="fa-brands fa-telegram text-3xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
             <h5>Telegram</h5>
+        </NuxtLink>
+    </div>
+
+    <div class="flex justify-center flex-wrap sm:gap-8 gap-6 items-center mt-8">
+        <NuxtLink v-for="button in social?.buttons" :key="button.id" :href="button?.url" target="_blank"
+            class="flex flex-col gap-3 items-center cursor-pointer">
+            <img v-if="button?.image" class="w-14 h-14 rounded-full object-cover" :src="button?.image"
+                :alt="button?.text + ' image'">
+            <i v-else
+                class="fa-solid fa-link text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
+            <h5>{{ button?.text }}</h5>
         </NuxtLink>
     </div>
 
@@ -100,5 +111,3 @@ onMounted(() => {
     siteUrl = window.location.href;
 });
 </script>
-
-<style scoped></style>

@@ -27,11 +27,11 @@
       <UI-Divider icon-name="fa-solid fa-medal" />
       <Clients />
       <!-- Works section -->
-      <UI-Divider icon-name="fa-solid fa-video  " />
+      <UI-Divider icon-name="fa-solid fa-video" />
       <Works />
 
       <!-- About-person section -->
-      <UI-Divider icon-name="fa-solid fa-user  " />
+      <UI-Divider icon-name="fa-solid fa-user" />
       <AboutPerson />
 
       <!-- Gallery section -->
@@ -68,6 +68,7 @@ const res = await fetchData(params.slug);
 
 onMounted(() => {
   document.documentElement.style.setProperty('--primary', colors.value.primary);
+  document.documentElement.style.setProperty('--hoverColor', colors.value.hoverColor);
 })
 
 // Create error

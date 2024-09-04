@@ -21,9 +21,18 @@ export const useProfileStore = defineStore("profile-store", () => {
     try {
       const res = await $fetch(url + "/profile/" + slug);
 
-      const { clients, projects, gallery_images, color, html, ...data } = res;
+      const {
+        clients,
+        projects,
+        gallery_images,
+        color,
+        color_hover,
+        html,
+        ...data
+      } = res;
 
       colors.value.primary = color;
+      colors.value.hoverColor = color_hover;
       htmlData.value = html;
       profileData.value = data;
       clientsData.value = clients;
