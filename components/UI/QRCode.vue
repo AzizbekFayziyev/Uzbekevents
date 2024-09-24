@@ -23,7 +23,7 @@
 
                     <div class="flex justify-between">
                         <NuxtLink
-                            :href="`sms:?&body=%20I%20thought%20you%20may%20be%20interested%20in%20${profile.name}%27s%20OneTapConnect%20card.%20Click%20here%20and%20take%20a%20look.%20${siteUrl}`"
+                            :href="`sms:?&body=${profileData?.greeting_text ? profileData?.greeting_text : 'Hello! Visit the website: ' + siteUrl}`"
                             target="_blank" class="flex flex-col gap-3 items-center cursor-pointer">
                             <i
                                 class="fa-regular fa-comments text-3xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[65px] h-[65px] grid place-content-center"></i>
@@ -55,7 +55,6 @@
 <script setup>
 // Vue qrcode
 import VueQrcode from 'vue-qrcode';
-
 let siteUrl = "";
 // Stores
 const appStore = useAppStore();

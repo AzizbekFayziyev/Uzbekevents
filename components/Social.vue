@@ -1,6 +1,7 @@
 <template>
     <!-- Social links -->
-    <div class="mt-2 social-links flex justify-center max-w-[400px] mx-auto items-center sm:gap-x-12 gap-x-6 gap-y-6 flex-wrap">
+    <div
+        class="mt-2 social-links flex justify-center max-w-[400px] mx-auto items-center sm:gap-x-12 gap-x-6 gap-y-6 flex-wrap">
         <NuxtLink :href="`mailto:${social?.email}`" :class="{ hidden: !social?.email }"
             class="flex flex-col gap-3 items-center cursor-pointer">
             <i
@@ -16,16 +17,16 @@
             <h5>Call</h5>
         </NuxtLink>
 
-        <NuxtLink :href="`sms:${social?.phone_number}`" :class="{ hidden: !social?.phone_number }"
+        <NuxtLink :href="social?.calendar" target="_blank" :class="{ hidden: !social?.phone_number }"
             class="flex flex-col gap-3 items-center cursor-pointer">
             <i
-                class="fa-regular fa-comments text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
+                class="fa-regular fa-calendar text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
 
-            <h5>Text</h5>
+            <h5>Calendar</h5>
         </NuxtLink>
 
         <NuxtLink
-            :href="`sms:${social?.phone_number}?&body=Hey%20there,%20it%27s%20${social.name}.%20Please%20click%20the%20link%20below%20so%20we%20can%20share%20contact%20info.%20Talk%20soon!%20${siteUrl}`"
+            :href="`sms:?&body=${social?.greeting_text ? social?.greeting_text : 'Hello! Visit the website: ' + siteUrl}`"
             :class="{ hidden: !social?.phone_number }" class="flex flex-col gap-3 items-center cursor-pointer">
             <i
                 class="fa-regular fa-handshake text-2xl bg-hoverColor hover:bg-primary text-black hover:text-white transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"></i>
@@ -92,7 +93,7 @@
                 SHARE</button>
         </div>
 
-        <NuxtLink :href="social.web_site" target="_blank" class="btn">
+        <NuxtLink :href="social.company_url" target="_blank" class="btn">
             Website
         </NuxtLink>
     </div>
