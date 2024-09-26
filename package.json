@@ -11,16 +11,32 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
+    "@nuxtjs/i18n": "^8.5.5",
     "@pinia/nuxt": "^0.5.2",
+    "@radix-icons/vue": "^1.0.0",
+    "@vueuse/core": "^11.1.0",
+    "@vueuse/nuxt": "^11.1.0",
+    "axios": "^1.7.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "maska": "^3.0.2",
     "nuxt": "^3.12.4",
+    "nuxt-swiper": "^1.2.2",
     "pinia": "^2.2.0",
+    "radix-vue": "^1.9.6",
+    "shadcn-nuxt": "^0.10.4",
     "swiper": "^11.1.8",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7",
     "v-viewer": "^3.0.13",
+    "vee-validate": "^4.13.2",
     "vue": "latest",
-    "vue-qrcode": "^2.2.2"
+    "vue-qrcode": "^2.2.2",
+    "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "tailwindcss": "^3.4.7"
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.6.2"
   }
 }
