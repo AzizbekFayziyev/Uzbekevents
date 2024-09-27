@@ -101,3 +101,26 @@ body {
     opacity: 0;
     filter: blur(1rem);
 }
+
+/* Custom styles for vue-toastification */
+.Toastify__toast {
+    padding: 16px !important;
+    border-radius: 8px !important;
+    color: #fff !important;
+}
+
+.Toastify__toast--success {
+    background-color: #4caf50; /* Success color */
+}
+
+.Toastify__toast--error {
+    background-color: #f44336; /* Error color */
+}
+
+.Toastify__toast--info {
+    background-color: #2196f3; /* Info color */
+}
+
+.Toastify__toast--warning {
+    background-color: #ff9800; /* Warning color */
+}
