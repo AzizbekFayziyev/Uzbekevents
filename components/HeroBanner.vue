@@ -14,11 +14,11 @@
 							<Button class="bg-white max-sm:w-full">
 								{{ translations['Header.contact_us'] }}
 							</Button>
-							<a href="https://uzbekbusinessconnect.com/davron_khusanov" target="_blank">
+							<NuxtLink :to="localePath(`/mark`)" >
 								<Button variant="outline" class="text-white max-sm:w-full">
 									{{ translations['Header.Get_a_demo'] }}
 								</Button>
-							</a>
+							</NuxtLink>
 						</div>
 					</div>
 				</div>
@@ -59,4 +59,6 @@ import { useTranslationsStore } from '~/stores/translations.js';
 const translationsStore = useTranslationsStore();
 
 const { translations } = storeToRefs(translationsStore);
+
+const localePath = useLocalePath();
 </script>
