@@ -20,26 +20,26 @@
       <Social />
 
       <!-- About section -->
-      <UI-Divider icon-name="fa-solid fa-building" />
+      <Divider icon-name="fa-solid fa-building" />
       <About />
 
       <!-- Clients section -->
-      <UI-Divider icon-name="fa-solid fa-medal" />
+      <Divider icon-name="fa-solid fa-medal" />
       <Clients />
       <!-- Works section -->
-      <UI-Divider icon-name="fa-solid fa-video" />
+      <Divider icon-name="fa-solid fa-video" />
       <Works />
 
       <!-- About-person section -->
-      <UI-Divider icon-name="fa-solid fa-user" />
+      <Divider icon-name="fa-solid fa-user" />
       <AboutPerson />
 
       <!-- Gallery section -->
-      <UI-Divider icon-name="fa-solid fa-images" />
+      <Divider icon-name="fa-solid fa-images" />
       <Gallery />
 
       <!-- Share -->
-      <UI-Divider icon-name="fa-solid fa-share-from-square" />
+      <Divider icon-name="fa-solid fa-share-from-square" />
       <button @click="toggleCard" class="btn w-full">SHARE MY INFO</button>
       <NuxtLink href="https://uzbekbusinessconnect.com"
         class="rounded-xl py-2 px-4 mx-auto block border mt-5 text-base max-w-max" target="_blank">Get Your Connect
@@ -47,7 +47,7 @@
     </div>
 
     <!-- QR CODE -->
-    <UI-QRCode />
+    <QRCode />
   </div>
 </template>
 
