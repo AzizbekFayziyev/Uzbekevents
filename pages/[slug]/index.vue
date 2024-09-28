@@ -7,11 +7,9 @@
       :content="profile?.slug ? profile?.name + ' | UzbekBusinessConnect' : 'UzbekBusinnessConnect'" />
   </Head>
 
-  <div v-if="htmlData !== null" v-html="htmlData">
+  
 
-  </div>
-
-  <div v-else class="cnt">
+  <div  class="cnt">
     <!-- Header -->
     <Bio />
 
