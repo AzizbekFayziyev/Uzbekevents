@@ -57,8 +57,8 @@
 					}
 				}"
 			>
-				<SwiperSlide v-for="(review, i) in review" :key="i">
-					<div class="flex flex-col gap-4 p-6 bg-grey-0 rounded-3xl">
+				<SwiperSlide v-for="(review, i) in review" :key="i" class="!h-auto">
+					<div class="flex flex-col gap-4 p-6 bg-grey-0 rounded-3xl min-h-[250px]">
 						<div class="flex items-center gap-3">
 							<img :src="review.photo" alt="" class="w-16 h-16 rounded-full object-cover" v-if="review.photo" />
 							<img src="/assets/images/hero-bg.png" alt="" class="w-16 h-16 rounded-full object-cover" v-else />

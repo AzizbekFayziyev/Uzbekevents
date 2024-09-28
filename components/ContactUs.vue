@@ -49,7 +49,7 @@
 						<div class="flex flex-col min-w-[170px] gap-2">
 							<span class="text-sm">{{ translations['form.Social network'] }}</span>
 							<nav class="flex items-center gap-6">
-								<a href="" target="_blank">
+								<a :href="about[0].telegram" target="_blank">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 										fill="none">
 										<path
@@ -57,7 +57,7 @@
 											fill="white" />
 									</svg>
 								</a>
-								<a href="" target="_blank">
+								<a :href="about[0].facebook" target="_blank">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 										fill="none">
 										<path
@@ -65,7 +65,7 @@
 											fill="white" />
 									</svg>
 								</a>
-								<a href="" target="_blank">
+								<a :href="about[0].instagram" target="_blank">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 										fill="none">
 										<path
@@ -77,18 +77,18 @@
 						</div>
 						<div class="flex flex-col min-w-[170px] gap-2">
 							<span class="text-sm">{{ translations['form.Phone number'] }}</span>
-							<a href="" target="_blank" class="text-base sm:text-xl font-medium">+998 99 165 32 45</a>
+							<a :href="`tel:${about[0].phone_1}`" target="_blank" class="text-base sm:text-xl font-medium">{{about[0].phone_1}}</a>
 						</div>
 						<div class="flex flex-col min-w-[170px] gap-2">
 							<span class="text-sm">Электрон почта</span>
-							<a href="" target="_blank" class="text-base sm:text-xl font-medium">uzbc@index.uz</a>
+							<a href="mailto:uzbc@index.uz" target="_blank" class="text-base sm:text-xl font-medium">uzbc@index.uz</a>
 						</div>
 					</div>
 					<div class="flex items-center flex-col sm:flex-row sm:justify-between rounded-2xl bg-white p-6">
 						<div class="flex flex-col">
 							<span class="text-grey-4 text-base"> {{ translations['form.For instant communication'] }}
 							</span>
-							<span class="text-xl font-medium">+998 99 132 45 62</span>
+							<span class="text-xl font-medium">{{about[0].phone_2}}</span>
 						</div>
 						<a href="" target="_blank" class="flex items-center gap-2 py-4 px-6">
 							@uzbcsupport
@@ -115,17 +115,24 @@
 <script setup>
 import { useTranslationsStore } from '~/stores/translations.js';
 import { useApplication } from '~/stores/application.js';
+import { useAboutStore } from '~/stores/about.js';
+
 import { useToast } from "vue-toast-notification";
+
 
 const toast = useToast();
 
 const translationsStore = useTranslationsStore();
 const applicationStore = useApplication();
+const infosStore = useAboutStore();
+
 
 const { orderCreate } = applicationStore;
 const { translations } = storeToRefs(translationsStore);
 
 const { loading } = storeToRefs(applicationStore);
+const { about } = storeToRefs(infosStore);
+
 
 const form = reactive({
 	name: '',

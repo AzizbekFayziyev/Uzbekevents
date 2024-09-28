@@ -4,7 +4,7 @@
 			<div class="relative overflow-hidden z-20 w-full flex-shrink-0">
 				<img src="/assets/images/about.png" alt="" class="rounded-3xl w-full h-full object-cover" />
 				<div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex justify-center items-center z-[12]">
-					<div class="md:w-16 md:h-16 w-9 h-9 cursor-pointer flex items-center justify-center bg-white/40 border border-white/80 rounded-full">
+					<a :href="about[0].url" target="_blank" class="md:w-16 md:h-16 w-9 h-9 cursor-pointer flex items-center justify-center bg-white/40 border border-white/80 rounded-full">
 						<span class="p-[6.667px_6.667px_6.667px_10px]">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none">
 								<path
@@ -13,7 +13,7 @@
 								/>
 							</svg>
 						</span>
-					</div>
+					</a>
 				</div>
 				<div class="absolute top-0 left-0 p-4 md:p-10 z-[11]">
 					<div class="flex flex-col gap-2 sm:gap-6 text-white">
@@ -43,8 +43,10 @@
 import { useTranslationsStore } from '~/stores/translations.js';
 import { useAboutStore } from '~/stores/about.js';
 
+
 const translationsStore = useTranslationsStore();
 const infosStore = useAboutStore();
+
 
 const { translations } = storeToRefs(translationsStore);
 const { about } = storeToRefs(infosStore);

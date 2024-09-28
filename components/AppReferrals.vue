@@ -62,6 +62,12 @@
 						<img src="/assets/images/5.png" alt="" class="w-full h-full rounded-tl-[18px] object-cover" />
 					</div>
 				</div>
+				<div class="flex flex-col items-center sm:min-h-[470px] gap-6 sm:gap-7 bg-grey-0 rounded-[40px] px-4 sm:px-14 pt-6 sm:pt-10">
+					<h1 class="text-base sm:text-2xl font-medium">{{translations['main.add_contact']}}</h1>
+					<div class="max-w-[196px] sm:max-w-[464px] h-full w-full">
+						<img src="/assets/images/iphone.png" alt="" class="w-full h-full object-cover" />
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

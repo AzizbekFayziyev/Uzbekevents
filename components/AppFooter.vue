@@ -13,6 +13,7 @@
 						<a href="#contact-us" class="transition-300"> {{ translations['Header.contacts'] }} </a>
 					</nav>
 				</div>
+				<a :href="`tel:${about[0].phone_2}`" >
 				<Button class="bg-grey-3 text-white">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
 						<path
@@ -20,8 +21,9 @@
 							fill="white"
 						/>
 					</svg>
-					+998 99 165 32 41
+					{{about[0].phone_2}}
 				</Button>
+			</a>
 			</div>
 			<nav class="lg:hidden flex flex-col gap-10 text-base font-normal mt-10">
 				<a href="#hero-banner" class="transition-300"> {{ translations['Header.home'] }} </a>
@@ -39,8 +41,11 @@
 
 <script setup>
 import { useTranslationsStore } from '~/stores/translations.js';
+import { useAboutStore } from '~/stores/about.js';
 
 const translationsStore = useTranslationsStore();
+const infosStore = useAboutStore();
 
 const { translations } = storeToRefs(translationsStore);
+const { about } = storeToRefs(infosStore);
 </script>

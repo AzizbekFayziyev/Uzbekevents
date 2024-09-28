@@ -6,7 +6,7 @@
 	>
 		<div class="container flex h-16 items-center">
 			<div class="flex items-center max-xl:space-x-4 space-x-8">
-				<NuxtLink to="/">
+				<NuxtLink :to="localePath('/')">
 					<img src="/assets/svg/logo.svg" alt="" class="h-16 max-lg:w-16 w-[80px] object-contain" />
 				</NuxtLink>
 				<nav class="hidden lg:flex items-center max-xl:space-x-4 space-x-8 max-xl:text-sm text-xl font-normal">
@@ -59,7 +59,7 @@
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
-				<a href="" class="max-lg:hidden">
+				<a :href="`tel:${about[0].phone_1}`" class="max-lg:hidden">
 					<Button class="bg-white/[0.16] border-white/[0.08] text-white text-base">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
 							<path
@@ -67,7 +67,7 @@
 								fill="white"
 							/>
 						</svg>
-						+998 99 165 32 41
+						{{ about[0].phone_1 }}
 					</Button>
 				</a>
 
@@ -88,14 +88,18 @@
 
 <script setup>
 import { useTranslationsStore } from '~/stores/translations.js';
+import { useAboutStore } from '~/stores/about.js';
 
 const dark = ref(false);
 
 const translationsStore = useTranslationsStore();
+const infosStore = useAboutStore();
 
 const { translations } = storeToRefs(translationsStore);
 
 const localePath = useLocalePath();
+const { about } = storeToRefs(infosStore);
+
 const { setLocale, locale } = useI18n();
 
 const languageDropdown = ref(false);
