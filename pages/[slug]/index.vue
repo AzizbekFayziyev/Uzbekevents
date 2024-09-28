@@ -70,9 +70,9 @@ onMounted(() => {
 })
 
 // Create error
-if (!res) {
-  throw createError({ statusCode: 404, statusMessage: "User not found!", fatal: true })
-}
+// if (!res) {
+//   throw createError({ statusCode: 404, statusMessage: "User not found!", fatal: true })
+// }
 
 
 </script>
