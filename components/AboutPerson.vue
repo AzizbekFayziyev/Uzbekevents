@@ -1,6 +1,6 @@
 <template>
     <section>
-        <UI-Title>{{ profile.about_person_title }}</UI-Title>
+        <Title>{{ profile.about_person_title }}</Title>
 
         <div class="content" v-html="profile.about_person"></div>
     </section>
