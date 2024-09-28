@@ -20,26 +20,26 @@
       <Social />
 
       <!-- About section -->
-      <Divider icon-name="fa-solid fa-building" />
+      <UI-Divider icon-name="fa-solid fa-building" />
       <About />
 
       <!-- Clients section -->
-      <Divider icon-name="fa-solid fa-medal" />
+      <UI-Divider icon-name="fa-solid fa-medal" />
       <Clients />
       <!-- Works section -->
-      <Divider icon-name="fa-solid fa-video" />
+      <UI-Divider icon-name="fa-solid fa-video" />
       <Works />
 
       <!-- About-person section -->
-      <Divider icon-name="fa-solid fa-user" />
+      <UI-Divider icon-name="fa-solid fa-user" />
       <AboutPerson />
 
       <!-- Gallery section -->
-      <Divider icon-name="fa-solid fa-images" />
+      <UI-Divider icon-name="fa-solid fa-images" />
       <Gallery />
 
       <!-- Share -->
-      <Divider icon-name="fa-solid fa-share-from-square" />
+      <UI-Divider icon-name="fa-solid fa-share-from-square" />
       <button @click="toggleCard" class="btn w-full">SHARE MY INFO</button>
       <NuxtLink href="https://uzbekbusinessconnect.com"
         class="rounded-xl py-2 px-4 mx-auto block border mt-5 text-base max-w-max" target="_blank">Get Your Connect
@@ -47,7 +47,7 @@
     </div>
 
     <!-- QR CODE -->
-    <QRCode />
+    <UI-QRCode />
   </div>
 </template>
 
@@ -65,9 +65,8 @@ const { fetchData } = profileStore;
 
 // Fetch data
 
-const { data:res } = await useAsyncData('res', async () => {
-   return await fetchData(params.slug)
-});
+
+const res = await fetchData(params.slug);
 
 console.log('sasasas')
 
