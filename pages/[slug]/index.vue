@@ -7,9 +7,11 @@
       :content="profile?.slug ? profile?.name + ' | UzbekBusinessConnect' : 'UzbekBusinnessConnect'" />
   </Head>
 
-  
+  <div v-if="htmlData !== null" v-html="htmlData">
 
-  <div  class="cnt">
+  </div>
+
+  <div v-else class="cnt">
     <!-- Header -->
     <Bio />
 
@@ -62,7 +64,12 @@ const { toggleCard } = appStore;
 const { fetchData } = profileStore;
 
 // Fetch data
-const res = await fetchData(params.slug);
+
+const { data:res } = await useAsyncData('res', async () => {
+   return await fetchData(params.slug)
+});
+
+console.log('sasasas')
 
 onMounted(() => {
   document.documentElement.style.setProperty('--primary', colors.value.primary);
@@ -70,9 +77,7 @@ onMounted(() => {
 })
 
 // Create error
-// if (!res) {
-//   throw createError({ statusCode: 404, statusMessage: "User not found!", fatal: true })
-// }
+
 
 
 </script>

@@ -10,7 +10,7 @@
                 <button @click="toggleCard"><i
                         class="fa-solid fa-xmark text-3xl text-black absolute right-5"></i></button>
 
-                <h4 class="text-black text-2xl my-6 font-medium">{{ profile.name }}</h4>
+                <h4 class="text-black text-2xl my-6 font-medium">{{ profile?.name }}</h4>
 
                 <VueQrcode width="280" height="280" class="mx-auto block" :value="siteUrl" />
 
@@ -31,7 +31,7 @@
                             <h5 class="text-black">By Text</h5>
                         </NuxtLink>
 
-                        <NuxtLink :href="`mailto:${profile.email}`" target="_blank"
+                        <NuxtLink :href="`mailto:${profile?.email}`" target="_blank"
                             class="flex flex-col gap-3 items-center cursor-pointer">
                             <i
                                 class="fa-solid fa-envelope text-3xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[65px] h-[65px] grid place-content-center"></i>

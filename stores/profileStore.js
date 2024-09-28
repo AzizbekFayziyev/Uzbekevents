@@ -41,7 +41,7 @@ export const useProfileStore = defineStore("profile-store", () => {
 
       return res;
     } catch (error) {
-      console.log(error);
+      throw new Error()
     }
   };
 

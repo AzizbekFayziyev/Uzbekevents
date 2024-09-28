@@ -1,7 +1,6 @@
 <template>
     <!-- header logo -->
     <img class="w-full h-[200px] object-cover" :src="bio.background_image" alt="logo" />
-
     <!-- Bio -->
     <div class="flex flex-col items-center gap-2">
         <viewer :images="'/hero.jpg'">
