@@ -13,7 +13,7 @@ export const useApi = () => {
 
 	api.interceptors.request.use(
 		(config) => {
-			config.headers['Language'] = locale.value;
+			config.headers['Accept-Language'] = locale.value;
 			return config;
 		},
 		(error) => Promise.reject(error)

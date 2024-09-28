@@ -14,7 +14,7 @@
 						<h3 class="text-2xl sm:text-3xl font-semibold">{{ formatPrice(item.price) }} <span class="text-base font-normal">sum</span></h3>
 						<p class="text-sm sm:text-base text-center">{{ item.title }}</p>
 					</div>
-					<ModalOrderCreate :tariff-id="item.id">
+					<ModalOrderCreate :tariff-id="item">
 						<Button class="w-full text-white sm:text-base border-2 border-white/[0.16]" style="background: rgba(210, 215, 221, 0.24)">Выберать план</Button>
 					</ModalOrderCreate>
 					<ul class="flex flex-col gap-6">

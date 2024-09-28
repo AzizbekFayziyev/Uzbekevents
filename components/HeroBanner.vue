@@ -14,7 +14,7 @@
 							<Button class="bg-white max-sm:w-full">
 								{{ translations['Header.contact_us'] }}
 							</Button>
-							<NuxtLink :to="localePath(`/mark`)" >
+							<NuxtLink :to="localePath(`/mark`)" class="max-sm:w-full">
 								<Button variant="outline" class="text-white max-sm:w-full">
 									{{ translations['Header.Get_a_demo'] }}
 								</Button>

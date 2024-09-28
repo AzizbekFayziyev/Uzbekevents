@@ -80,8 +80,8 @@
 							<a :href="`tel:${about[0].phone_1}`" target="_blank" class="text-base sm:text-xl font-medium">{{about[0].phone_1}}</a>
 						</div>
 						<div class="flex flex-col min-w-[170px] gap-2">
-							<span class="text-sm">Электрон почта</span>
-							<a href="mailto:uzbc@index.uz" target="_blank" class="text-base sm:text-xl font-medium">uzbc@index.uz</a>
+							<span class="text-sm">{{translations['form.email_name']}}</span>
+							<a :href="`mailto:${translations['form.email_name']}`" target="_blank" class="text-base sm:text-xl font-medium">{{translations['form.email']}}</a>
 						</div>
 					</div>
 					<div class="flex items-center flex-col sm:flex-row sm:justify-between rounded-2xl bg-white p-6">
@@ -90,7 +90,7 @@
 							</span>
 							<span class="text-xl font-medium">{{about[0].phone_2}}</span>
 						</div>
-						<a href="" target="_blank" class="flex items-center gap-2 py-4 px-6">
+						<a :href="translations['form.telegram_support']" target="_blank" class="flex items-center gap-2 py-4 px-6">
 							@uzbcsupport
 							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16"
 								fill="none">

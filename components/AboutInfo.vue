@@ -4,7 +4,7 @@
 			<div class="relative overflow-hidden z-20 w-full flex-shrink-0">
 				<img src="/assets/images/about.png" alt="" class="rounded-3xl w-full h-full object-cover" />
 				<div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex justify-center items-center z-[12]">
-					<a :href="about[0].url" target="_blank" class="md:w-16 md:h-16 w-9 h-9 cursor-pointer flex items-center justify-center bg-white/40 border border-white/80 rounded-full">
+					<div @click="activeVideoModal=true" class="md:w-16 md:h-16 w-9 h-9 cursor-pointer flex items-center justify-center bg-white/40 border border-white/80 rounded-full">
 						<span class="p-[6.667px_6.667px_6.667px_10px]">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none">
 								<path
@@ -13,7 +13,7 @@
 								/>
 							</svg>
 						</span>
-					</a>
+					</div>
 				</div>
 				<div class="absolute top-0 left-0 p-4 md:p-10 z-[11]">
 					<div class="flex flex-col gap-2 sm:gap-6 text-white">
@@ -36,6 +36,17 @@
 				<div class="text-base sm:text-xl font-semibold" v-html="about[0]?.descriptions" />
 			</div>
 		</div>
+		<Dialog v-model:open="activeVideoModal">
+         <DialogContent class="bg-transparent border-none shadow-none !max-w-[1000px] flex justify-center">
+            <iframe
+               :src="about[0].url"
+               frameborder="0"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+               referrerpolicy="strict-origin-when-cross-origin"
+               allowfullscreen
+            ></iframe>
+         </DialogContent>
+      </Dialog>
 	</div>
 </template>
 
@@ -50,4 +61,13 @@ const infosStore = useAboutStore();
 
 const { translations } = storeToRefs(translationsStore);
 const { about } = storeToRefs(infosStore);
+
+const activeVideoModal = ref(false)
 </script>
+
+<style scoped>
+iframe{
+	width: 800px;
+	height: 450px;
+}
+</style>

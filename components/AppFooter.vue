@@ -5,12 +5,24 @@
 				<div class="flex items-center gap-14">
 					<img src="/assets/svg/logo.svg" alt="" class="w-[80px] sm:w-[98px] object-contain flex-shrink-0" />
 					<nav class="hidden lg:flex items-center max-xl:space-x-4 space-x-10 max-xl:text-base text-xl font-normal">
-						<a href="#hero-banner" class="transition-300"> {{ translations['Header.home'] }} </a>
-						<a href="#about-info" class="transition-300"> {{ translations['Header.characteristic'] }} </a>
-						<a href="#app-portfolio" class="transition-300"> {{ translations['Header.plans'] }} </a>
-						<a href="#successful-clients" class="transition-300"> {{ translations['Header.clients'] }} </a>
-						<a href="#app-tariff" class="transition-300"> {{ translations['Header.howtouse'] }} </a>
-						<a href="#contact-us" class="transition-300"> {{ translations['Header.contacts'] }} </a>
+						<button @click.prevent="scrollToSection('hero')" class="transition-300">
+						{{ translations['Header.home'] }}
+					</button>
+					<button @click.prevent="scrollToSection('about')" class="transition-300">
+						{{ translations['Header.characteristic'] }}
+					</button>
+					<button @click.prevent="scrollToSection('portfolio')" class="transition-300">
+						{{ translations['Header.plans'] }}
+					</button>
+					<button @click.prevent="scrollToSection('clients')" class="transition-300">
+						{{ translations['Header.clients'] }}
+					</button>
+					<button @click.prevent="scrollToSection('suggestions')" class="transition-300">
+						{{ translations['Header.howtouse'] }}
+					</button>
+					<button @click.prevent="scrollToSection('contact')" class="transition-300">
+						{{ translations['Header.contacts'] }}
+					</button>
 					</nav>
 				</div>
 				<a :href="`tel:${about[0].phone_2}`" >
@@ -26,13 +38,26 @@
 			</a>
 			</div>
 			<nav class="lg:hidden flex flex-col gap-10 text-base font-normal mt-10">
-				<a href="#hero-banner" class="transition-300"> {{ translations['Header.home'] }} </a>
-				<a href="#about-info" class="transition-300"> {{ translations['Header.characteristic'] }} </a>
-				<a href="#app-portfolio" class="transition-300"> {{ translations['Header.plans'] }} </a>
-				<a href="#successful-clients" class="transition-300"> {{ translations['Header.clients'] }} </a>
-				<a href="#app-tariff" class="transition-300"> {{ translations['Header.howtouse'] }} </a>
-				<a href="#contact-us" class="transition-300"> {{ translations['Header.contacts'] }} </a>
-			</nav>
+					<button @click.prevent="scrollToSection('hero')" class="transition-300">
+						{{ translations['Header.home'] }}
+					</button>
+					<button @click.prevent="scrollToSection('about')" class="transition-300">
+						{{ translations['Header.characteristic'] }}
+					</button>
+					<button @click.prevent="scrollToSection('portfolio')" class="transition-300">
+						{{ translations['Header.plans'] }}
+					</button>
+					<button @click.prevent="scrollToSection('clients')" class="transition-300">
+						{{ translations['Header.clients'] }}
+					</button>
+					<button @click.prevent="scrollToSection('suggestions')" class="transition-300">
+						{{ translations['Header.howtouse'] }}
+					</button>
+					<button @click.prevent="scrollToSection('contact')" class="transition-300">
+						{{ translations['Header.contacts'] }}
+					</button>
+				</nav>
+	
 			<div class="w-full h-px bg-grey-2 my-10"></div>
 			<p class="text-base text-grey-1">Privacy policy Terms of conditions</p>
 		</div>
@@ -48,4 +73,11 @@ const infosStore = useAboutStore();
 
 const { translations } = storeToRefs(translationsStore);
 const { about } = storeToRefs(infosStore);
+
+const scrollToSection = (sectionId) => {
+	const section = document.getElementById(sectionId);
+	if (section) {
+		section.scrollIntoView({ behavior: 'smooth' });
+	}
+};
 </script>
