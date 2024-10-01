@@ -33,7 +33,7 @@
 						</li>
 					</ul>
 					<div class="absolute top-[-22.5px] left-1/2 -translate-x-1/2" v-if="item.status === 'active'">
-						<span class="py-3 px-6 h-[45px] flex items-center justify-center bg-blue text-white rounded-[8px]"> Eng mashhur tarif </span>
+						<span class="py-3 px-6 h-[45px] flex items-center justify-center bg-blue text-white rounded-[8px] text-center"> {{ translations['form.popular_tariff'] }} </span>
 					</div>
 				</div>
 			</div>

@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   ],
   i18n: {
     locales: ["uz", "ru", "en"],
-    defaultLocale: "uz",
+    defaultLocale: "ru",
     vueI18n: "./i18n.config.ts",
   },
   runtimeConfig: {
