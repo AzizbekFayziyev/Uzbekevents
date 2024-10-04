@@ -1,6 +1,6 @@
 <template>
     <section>
-        <Title>{{profile.gallery_title}}</Title>
+        <UITitle>{{profile.gallery_title}}</UITitle>
 
         <viewer :images="gallery" class="grid grid-cols-2 gap-4">
             <img v-for="pic in gallery"

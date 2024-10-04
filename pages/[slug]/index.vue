@@ -2,9 +2,19 @@
   <!-- Seo -->
 
   <Head>
-    <Title>{{ profile?.slug ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinnessConnect" }}</Title>
-    <Meta name="og:title"
-      :content="profile?.slug ? profile?.name + ' | UzbekBusinessConnect' : 'UzbekBusinnessConnect'" />
+    <!-- Dinamic Meta -->
+    <Title>{{ profile ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinnessConnect" }}</Title>
+    <Link rel="icon" type="image/x-icon" :href="profile?.profile_image" />
+    <!-- Open Graph Image for Preview -->
+    <Meta name="og:title" :content="profile ? profile?.name + ' | UzbekBusinessConnect' : 'UzbekBusinnessConnect'" />
+    <Meta name="og:image" :content="profile?.profile_image" />
+    <Meta name="og:image:width" content="1200" />
+    <Meta name="og:image:height" content="630" />
+    <Meta name="og:type" content="website" />
+    <Meta name="og:url" :content="`https://uzbekbusinessconnect.com/${profile?.slug}`" />
+    <!-- Twitter Preview -->
+    <Meta name="twitter:card" content="summary_large_image" />
+    <Meta name="twitter:image" :content="profile?.profile_image || '/default-image.jpg'" />
   </Head>
 
   <div v-if="htmlData !== null" v-html="htmlData">

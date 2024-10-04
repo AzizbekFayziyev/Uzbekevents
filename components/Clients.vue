@@ -1,5 +1,5 @@
 <template>
-    <Title>{{ profile.clients_title }}</Title>
+    <UITitle>{{ profile.clients_title }}</UITitle>
 
     <Swiper class="mt-6 h-[170px]" :slidesPerView="3" :space-between="30" :loop="true" :autoplay="{
         delay: 3000,

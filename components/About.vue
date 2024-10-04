@@ -1,7 +1,6 @@
 <template>
     <section>
-
-        <Title>{{ about.about_event_title }}</Title>
+        <UITitle>{{ about.about_event_title }}</UITitle>
 
         <div class="content" v-html="about.about_event" :class="{ 'line-clamp-5': !isFullText }"></div>
 

@@ -1,6 +1,6 @@
 <template>
     <section>
-        <Title>{{ profile.our_projects_title }}</Title>
+        <UITitle>{{ profile.our_projects_title }}</UITitle>
 
         <Swiper class="mt-6 h-[240px]" :slidesPerView="1" :space-between="30" :loop="true" :pagination="{
             clickable: true,
