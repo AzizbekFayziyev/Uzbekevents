@@ -4,9 +4,11 @@
   <Head>
     <!-- Dinamic Meta -->
     <Title>{{ profile ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinnessConnect" }}</Title>
+    <Meta name="description" content="" />
     <Link rel="icon" type="image/x-icon" :href="profile?.profile_image" />
     <!-- Open Graph Image for Preview -->
     <Meta name="og:title" :content="profile ? profile?.name + ' | UzbekBusinessConnect' : 'UzbekBusinnessConnect'" />
+    <Meta name="og:description" content="" />
     <Meta name="og:image" :content="profile?.profile_image" />
     <Meta name="og:image:width" content="1200" />
     <Meta name="og:image:height" content="630" />
