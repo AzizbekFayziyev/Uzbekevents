@@ -63,13 +63,14 @@ onMounted(() => {
   document.documentElement.style.setProperty('--primary', colors.value.primary);
   document.documentElement.style.setProperty('--hoverColor', colors.value.hoverColor);
 })
+
 // Seo 
 useHead({
   title: `${profile?.value?.name} | UzbekBusinessConnect` || 'UzbekBusinessConnect',
   meta: [
-    { name: 'description', content: '' },
+    { name: 'description', content: profile?.value?.about_person.replace(/<[^>]+>/g, '') || '' },
     { name: 'og:title', content: `${profile?.value?.name} | UzbekBusinessConnect` || 'UzbekBusinessConnect' },
-    { name: 'og:description', content: '' },
+    { name: 'og:description', content: profile?.value?.about_person.replace(/<[^>]+>/g, '') || '' },
     { name: 'og:image', content: profile?.value?.profile_image || '/logo.png' },
     { name: 'og:image:width', content: '1200' },
     { name: 'og:image:height', content: '630' },

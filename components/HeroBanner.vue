@@ -11,10 +11,10 @@
 							{{ translations['Header.Build_a_brand_position'] }}
 						</p>
 						<div class="flex items-center flex-col sm:flex-row gap-4 sm:gap-6 max-w-[576px]">
-							<Button class="bg-white max-sm:w-full">
+							<Button @click.prevent="scrollToSection('contact')" class="bg-white max-sm:w-full">
 								{{ translations['Header.contact_us'] }}
 							</Button>
-							<NuxtLink :to="localePath(`/mark`)" class="max-sm:w-full">
+							<NuxtLink :to="localePath(`/davron_khusanov`)" class="max-sm:w-full">
 								<Button variant="outline" class="text-white max-sm:w-full">
 									{{ translations['Header.Get_a_demo'] }}
 								</Button>
@@ -55,10 +55,16 @@
 
 <script setup>
 import { useTranslationsStore } from '~/stores/translations.js';
-
 const translationsStore = useTranslationsStore();
-
 const { translations } = storeToRefs(translationsStore);
 
 const localePath = useLocalePath();
+
+const scrollToSection = (sectionId) => {
+	const section = document.getElementById(sectionId);
+	if (section) {
+		section.scrollIntoView({ behavior: 'smooth' });
+	}
+};
+
 </script>
