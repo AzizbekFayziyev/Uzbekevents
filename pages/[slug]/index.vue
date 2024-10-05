@@ -69,7 +69,7 @@ useHead({
   title: `${profile?.value?.name} - ${profile?.value?.company_name} | UzbekBusinessConnect` || 'UzbekBusinessConnect',
   meta: [
     { name: 'description', content: profile?.value?.about_person.replace(/<[^>]+>/g, '') || '' },
-    { name: 'og:title', content: `${profile?.value?.name} | UzbekBusinessConnect` || 'UzbekBusinessConnect' },
+    { name: 'og:title', content: `${profile?.value?.name} - ${profile?.value?.company_name} | UzbekBusinessConnect` || 'UzbekBusinessConnect' },
     { name: 'og:description', content: profile?.value?.about_person.replace(/<[^>]+>/g, '') || '' },
     { name: 'og:image', content: profile?.value?.profile_image || '/logo.png' },
     { name: 'og:image:width', content: '1200' },
