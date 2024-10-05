@@ -18,11 +18,11 @@ const translationsStore = useTranslationsStore();
 const { translations } = storeToRefs(translationsStore);
 
 useHead({
-	title: translations.value['Header.just_one_click'],
+	title: 'Всего одним нажатием Поделитесь своей контактной информацией:',
 	meta: [
-		{ name: 'og:title', content: translations.value['Header.just_one_click'] },
-		{ name: 'description', content: translations.value['Header.Build_a_brand_position'] },
-		{ name: 'og:description', content: translations.value['Header.Build_a_brand_position'] },
+		{ name: 'og:title', content: 'Всего одним нажатием Поделитесь своей контактной информацией:' },
+		{ name: 'description', content: 'Создайте бренд, позиционируйте себя и отличайтесь от других с первой точки контакта' },
+		{ name: 'og:description', content: 'Создайте бренд, позиционируйте себя и отличайтесь от других с первой точки контакта' },
 		{ name: 'og:image', content: '/assets/images/Group.png' },
 		{ name: 'og:image:width', content: '1200' },
 		{ name: 'og:image:height', content: '630' },
