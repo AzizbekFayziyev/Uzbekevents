@@ -13,9 +13,9 @@ export default defineNuxtConfig({
           href: "/logo.png",
         },
       ],
-    },
-   
+    }
   },
+  ssr: true,
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   modules: [

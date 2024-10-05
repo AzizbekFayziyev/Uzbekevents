@@ -1,24 +1,4 @@
 <template>
-  <!-- Seo -->
-
-  <Head>
-    <!-- Dinamic Meta -->
-    <Title>{{ profile ? profile?.name + " | UzbekBusinessConnect" : "UzbekBusinnessConnect" }}</Title>
-    <Meta name="description" content="" />
-    <Link rel="icon" type="image/x-icon" :href="profile?.profile_image" />
-    <!-- Open Graph Image for Preview -->
-    <Meta name="og:title" :content="profile ? profile?.name + ' | UzbekBusinessConnect' : 'UzbekBusinnessConnect'" />
-    <Meta name="og:description" content="" />
-    <Meta name="og:image" :content="profile?.profile_image" />
-    <Meta name="og:image:width" content="1200" />
-    <Meta name="og:image:height" content="630" />
-    <Meta name="og:type" content="website" />
-    <Meta name="og:url" :content="`https://uzbekbusinessconnect.com/${profile?.slug}`" />
-    <!-- Twitter Preview -->
-    <Meta name="twitter:card" content="summary_large_image" />
-    <Meta name="twitter:image" :content="profile?.profile_image || '/default-image.jpg'" />
-  </Head>
-
   <div v-if="htmlData !== null" v-html="htmlData">
 
   </div>
@@ -76,21 +56,32 @@ const { toggleCard } = appStore;
 const { fetchData } = profileStore;
 
 // Fetch data
+await fetchData(params.slug);
 
-
-const res = await fetchData(params.slug);
-
-console.log('sasasas')
 
 onMounted(() => {
   document.documentElement.style.setProperty('--primary', colors.value.primary);
   document.documentElement.style.setProperty('--hoverColor', colors.value.hoverColor);
 })
-
-// Create error
-
-
-
+// Seo 
+useHead({
+  title: `${profile?.value?.name} | UzbekBusinessConnect` || 'UzbekBusinessConnect',
+  meta: [
+    { name: 'description', content: profile?.value?.description || '' },
+    { name: 'og:title', content: `${profile?.value?.name} | UzbekBusinessConnect` || 'UzbekBusinessConnect' },
+    { name: 'og:description', content: profile?.value?.description || '' },
+    { name: 'og:image', content: profile?.value?.profile_image || '/logo.png' },
+    { name: 'og:image:width', content: '1200' },
+    { name: 'og:image:height', content: '630' },
+    { name: 'og:type', content: 'website' },
+    { name: 'og:url', content: `https://uzbekbusinessconnect.com/${profile?.value?.slug}` },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: profile?.value?.profile_image || '/logo.png' },
+  ],
+  link: [
+    { rel: 'icon', type: 'image/x-icon', href: profile?.value?.profile_image || '/default-favicon.ico' }
+  ]
+});
 </script>
 
 <style></style>
