@@ -66,7 +66,7 @@ onMounted(() => {
 
 // Seo 
 useHead({
-  title: `${profile?.value?.name} | UzbekBusinessConnect` || 'UzbekBusinessConnect',
+  title: `${profile?.value?.name} - ${profile?.value?.company_name} | UzbekBusinessConnect` || 'UzbekBusinessConnect',
   meta: [
     { name: 'description', content: profile?.value?.about_person.replace(/<[^>]+>/g, '') || '' },
     { name: 'og:title', content: `${profile?.value?.name} | UzbekBusinessConnect` || 'UzbekBusinessConnect' },
