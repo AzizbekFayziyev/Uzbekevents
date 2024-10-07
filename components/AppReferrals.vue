@@ -26,7 +26,7 @@
 							<img src="/assets/images/1.png" alt="" class="w-full h-full object-contain transition-300 group-hover:scale-105" />
 						</div>
 						<p class="text-base sm:text-2xl font-medium transition-300 sm:translate-y-[200px] group-hover:translate-y-0">
-							{{ translations['main.NFC_icon'] }}
+							{{ translations['main.nfc-stiker'] }}
 						</p>
 					</div>
 					<div
@@ -35,7 +35,7 @@
 						<div class="max-w-[500px] max-h-[300px]">
 							<img src="/assets/images/2.png" alt="" class="w-full h-full object-contain transition-300 group-hover:scale-105" />
 						</div>
-						<p class="text-base sm:text-2xl font-medium transition-300 sm:translate-y-[200px] group-hover:translate-y-0">{{ translations['main.NFC_icon'] }}</p>
+						<p class="text-base sm:text-2xl font-medium transition-300 sm:translate-y-[200px] group-hover:translate-y-0">{{ translations['main.nfc-card'] }}</p>
 					</div>
 					<div
 						class="col-span-1 md:col-span-6 lg:col-span-3 flex flex-col items-center justify-center sm:min-h-[450px] overflow-hidden gap-6 sm:gap-10 sm:rounded-2xl sm:hover:bg-[#E9E9EF] sm:py-10 sm:px-8 group transition-300"
@@ -43,7 +43,7 @@
 						<div class="max-w-[185px] max-h-[185px]">
 							<img src="/assets/images/3.png" alt="" class="w-full h-full object-contain transition-300 group-hover:scale-105" />
 						</div>
-						<p class="text-base sm:text-2xl font-medium transition-300 sm:translate-y-[200px] group-hover:translate-y-0">{{ translations['main.NFC_icon'] }}</p>
+						<p class="text-base sm:text-2xl font-medium transition-300 sm:translate-y-[200px] group-hover:translate-y-0">{{ translations['main.nfc-bracelet'] }}</p>
 					</div>
 				</div>
 			</div>
