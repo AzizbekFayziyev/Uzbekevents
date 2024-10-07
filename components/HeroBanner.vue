@@ -1,8 +1,8 @@
 <template>
-	<div class="relative h-[840px] lg:h-[900px] rounded-b-3xl z-10 pt-[120px] sm:!pt-[192px] sm:pb-20 overflow-hidden">
+	<div class="relative h-[840px] lg:h-[900px] rounded-b-3xl z-10 pt-[110px] sm:!pt-[170px] sm:pb-20 overflow-hidden">
 		<div class="container flex flex-col gap-6 lg:justify-between h-full relative">
 			<div class="flex flex-col gap-6 sm:gap-10">
-				<h1 class="text-2xl md:text-4xl lg:text-6xl xl:text-[80px] text-white font-bold xl:leading-[72px]">
+				<h1 class="text-2xl md:text-4xl lg:text-6xl xl:text-[80px] text-white font-bold xl:leading-[90px]">
 					{{ translations['Header.just_one_click'] }}
 				</h1>
 				<div class="flex items-start justify-between relative">
