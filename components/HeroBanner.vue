@@ -42,7 +42,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="absolute right-[-16px] sm:right-8 bottom-[0px] sm:bottom-[-120px] max-w-[424px] max-h-[330px] lg:max-w-[700px] lg:max-h-[560px]">
+			<div class="absolute right-[-16px] sm:right-8 bottom-[-30px] sm:bottom-[-120px] max-w-[424px] max-h-[330px] lg:max-w-[700px] lg:max-h-[560px]">
 				<img src="/assets/images/Group.png" alt="" class="w-full object-contain" />
 			</div>
 		</div>
