@@ -14,7 +14,7 @@
 					<button @click.prevent="scrollToSection('about')" class="transition-300 text-white">
 						{{ translations['Header.characteristic'] }}
 					</button>
-					<button @click.prevent="scrollToSection('portfolio')" class="transition-300 text-white">
+					<button @click.prevent="scrollToSection('tariffs')" class="transition-300 text-white">
 						{{ translations['Header.plans'] }}
 					</button>
 					<button @click.prevent="scrollToSection('clients')" class="transition-300 text-white">
