@@ -5,6 +5,7 @@ const props = defineProps<DialogRootProps>()
 const emits = defineEmits<DialogRootEmits>()
 
 const forwarded = useForwardPropsEmits(props, emits)
+
 </script>
 
 <template>
