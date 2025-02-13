@@ -34,7 +34,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      API_URL: process.env.API_URL || 'https://admin.uzbekbusinessconnect.com/api'  ,
+      API_URL: process.env.API_URL || 'https://admin.uzbekbusinessconnect.com/api',
       apiBaseUrl: process.env.API_BASE_URL || "https://admin2.uzbekbusinessconnect.com/api",
     },
   },

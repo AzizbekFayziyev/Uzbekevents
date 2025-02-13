@@ -3,7 +3,7 @@
 
   </div>
 
-  <div v-else class="cnt">
+  <div :style="`background: ${profile?.bg_color}`" v-else class="cnt">
     <!-- Header -->
     <Bio />
 

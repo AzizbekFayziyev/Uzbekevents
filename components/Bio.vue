@@ -1,6 +1,18 @@
 <template>
-    <!-- header logo -->
-    <img class="w-full h-[200px] object-cover" :src="bio.background_image" alt="logo" />
+    <!-- header imag -->
+       <!-- header image or video -->
+       <div class="w-full h-[200px]">
+        <iframe 
+            v-if="bio?.bg_video" 
+            class="w-full h-full object-cover" 
+            :src="`${bio?.bg_video}?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&showinfo=0&disablekb=1&cc_load_policy=0`" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            playsinline
+            >
+        </iframe>
+        <img v-else class="w-full h-full object-cover" :src="bio?.background_image" alt="backgroun image" />
+    </div>
     <!-- Bio -->
     <div class="flex flex-col items-center gap-2">
         <viewer :images="'/hero.jpg'">
@@ -19,13 +31,13 @@
             </div>
         </viewer>
 
-        <h1 class="font-bold text-3xl text-center px-1">{{ bio.name }}</h1>
+        <h1 class="font-bold text-3xl text-center px-1">{{ bio?.name }}</h1>
 
         <NuxtLink class="text-secondary font-medium text-center px-1" :href="bio.company_url" target="_blank">{{
-            bio.company_name }}
+            bio?.company_name }}
         </NuxtLink>
 
-        <p class="font-bold mt-2 text-sm text-center px-1">{{ bio.job_title }}</p>
+        <p class="font-bold mt-2 text-sm text-center px-1">{{ bio?.job_title }}</p>
     </div>
 </template>
 
@@ -38,4 +50,5 @@ const { toggleCard } = appStore;
 
 // Refs
 const { profileData: bio } = storeToRefs(profileStore);
+
 </script>

@@ -2,22 +2,13 @@
     <section>
         <UITitle>{{ about.about_event_title }}</UITitle>
 
-        <div class="content" v-html="about.about_event" :class="{ 'line-clamp-5': !isFullText }"></div>
-
-        <button @click="isFullText = !isFullText" class="text-lg font-semibold mt-4">
-            {{ toggleText }}
-        </button>
-
+        <div class="content" v-html="about.about_event"></div>
     </section>
 </template>
 
 <script setup>
 const profileStore = useProfileStore();
 const { profileData: about } = storeToRefs(profileStore);
-
-const isFullText = ref(false);
-
-const toggleText = computed(() => isFullText.value ? "Read less" : "Read more");
 </script>
 
 <style scoped>
