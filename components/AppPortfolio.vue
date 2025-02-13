@@ -42,7 +42,7 @@
 									<img :src="item.photo" alt="" class="w-full object-contain" />
 								</div>
 							</div>
-							<p class="text-base sm:text-2xl font-medium text-white">
+							<p class="text-base sm:text-lg font-medium text-white">
 								{{ item?.title }}
 							</p>
 						</div>
