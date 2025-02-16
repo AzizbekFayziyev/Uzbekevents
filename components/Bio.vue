@@ -36,12 +36,14 @@
           >
             <i class="fa-solid fa-location-dot text-xl"></i>
           </div>
-          <span class="text-sm">Location</span>
+          <span class="text-sm universal-text">Location</span>
         </a>
       </div>
     </viewer>
 
-    <h1 class="font-bold text-3xl text-center px-1">{{ bio?.name }}</h1>
+    <h1 class="font-bold text-3xl text-center px-1 universal-text">
+      {{ bio?.name }}
+    </h1>
 
     <NuxtLink
       class="text-secondary font-medium text-center px-1"
@@ -50,7 +52,9 @@
       >{{ bio?.company_name }}
     </NuxtLink>
 
-    <p class="font-bold mt-2 text-sm text-center px-1">{{ bio?.job_title }}</p>
+    <p class="font-bold mt-2 text-sm text-center px-1 universal-text">
+      {{ bio?.job_title }}
+    </p>
   </div>
 </template>
 

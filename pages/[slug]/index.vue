@@ -1,9 +1,11 @@
 <template>
-  <div v-if="htmlData !== null" v-html="htmlData">
+  <div v-if="htmlData !== null" v-html="htmlData"></div>
 
-  </div>
-
-  <div :style="`background: ${profile?.bg_color}`" v-else class="cnt">
+  <div
+    :style="`background: ${profile?.bg_color}`"
+    v-else
+    class="cnt universal-cnt"
+  >
     <!-- Header -->
     <Bio />
 
@@ -33,9 +35,12 @@
       <!-- Share -->
       <Divider icon-name="fa-solid fa-share-from-square" />
       <button @click="toggleCard" class="btn w-full">SHARE MY INFO</button>
-      <NuxtLink href="https://uzbekbusinessconnect.com"
-        class="rounded-xl py-2 px-4 mx-auto block border mt-5 text-base max-w-max" target="_blank">Get Your Connect
-        Card</NuxtLink>
+      <NuxtLink
+        href="https://uzbekbusinessconnect.com"
+        class="rounded-xl py-2 px-4 mx-auto block border mt-5 text-base max-w-max universal-text"
+        target="_blank"
+        >Get Your Connect Card</NuxtLink
+      >
     </div>
 
     <!-- QR CODE -->
@@ -58,30 +63,83 @@ const { fetchData } = profileStore;
 // Fetch data
 await fetchData(params.slug);
 
+// Update text color based on background color
+function updateTextColor() {
+  const bgElement = document.querySelector(".universal-cnt");
+  if (!bgElement) return;
+
+  const bgColor = window.getComputedStyle(bgElement).backgroundColor;
+
+  if (!bgColor || bgColor === "rgba(0, 0, 0, 0)") {
+    return;
+  }
+
+  const rgb = bgColor.match(/\d+/g).map(Number);
+  const brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
+  // uniersal text colors
+  document.querySelectorAll(".universal-text").forEach((element) => {
+    element.style.color = brightness > 128 ? "black" : "white";
+    element.style.borderColor = brightness > 128 ? "black" : "white";
+  });
+
+  // universal bg colors
+  document.querySelectorAll(".universal-bg").forEach((element) => {
+    element.style.background = brightness > 128 ? "black" : "white";
+  });
+}
 
 onMounted(() => {
-  document.documentElement.style.setProperty('--primary', colors.value.primary);
-  document.documentElement.style.setProperty('--hoverColor', colors.value.hoverColor);
-})
+  updateTextColor();
+  window.addEventListener("resize", updateTextColor);
 
-// Seo 
+  document.documentElement.style.setProperty("--primary", colors.value.primary);
+  document.documentElement.style.setProperty(
+    "--hoverColor",
+    colors.value.hoverColor
+  );
+});
+
+// Seo
 useHead({
-  title: `${profile?.value?.name} - ${profile?.value?.company_name} | UzbekBusinessConnect` || 'UzbekBusinessConnect',
+  title:
+    `${profile?.value?.name} - ${profile?.value?.company_name} | UzbekBusinessConnect` ||
+    "UzbekBusinessConnect",
   meta: [
-    { name: 'description', content: profile?.value?.about_person.replace(/<[^>]+>/g, '') || '' },
-    { name: 'og:title', content: `${profile?.value?.name} - ${profile?.value?.company_name} | UzbekBusinessConnect` || 'UzbekBusinessConnect' },
-    { name: 'og:description', content: profile?.value?.about_person.replace(/<[^>]+>/g, '') || '' },
-    { name: 'og:image', content: profile?.value?.profile_image || '/logo.png' },
-    { name: 'og:image:width', content: '1200' },
-    { name: 'og:image:height', content: '630' },
-    { name: 'og:type', content: 'website' },
-    { name: 'og:url', content: `https://uzbekbusinessconnect.com/${profile?.value?.slug}` },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:image', content: profile?.value?.profile_image || '/logo.png' },
+    {
+      name: "description",
+      content: profile?.value?.about_person.replace(/<[^>]+>/g, "") || "",
+    },
+    {
+      name: "og:title",
+      content:
+        `${profile?.value?.name} - ${profile?.value?.company_name} | UzbekBusinessConnect` ||
+        "UzbekBusinessConnect",
+    },
+    {
+      name: "og:description",
+      content: profile?.value?.about_person.replace(/<[^>]+>/g, "") || "",
+    },
+    { name: "og:image", content: profile?.value?.profile_image || "/logo.png" },
+    { name: "og:image:width", content: "1200" },
+    { name: "og:image:height", content: "630" },
+    { name: "og:type", content: "website" },
+    {
+      name: "og:url",
+      content: `https://uzbekbusinessconnect.com/${profile?.value?.slug}`,
+    },
+    { name: "twitter:card", content: "summary_large_image" },
+    {
+      name: "twitter:image",
+      content: profile?.value?.profile_image || "/logo.png",
+    },
   ],
   link: [
-    { rel: 'icon', type: 'image/x-icon', href: profile?.value?.profile_image || '/default-favicon.ico' }
-  ]
+    {
+      rel: "icon",
+      type: "image/x-icon",
+      href: profile?.value?.profile_image || "/default-favicon.ico",
+    },
+  ],
 });
 </script>
 

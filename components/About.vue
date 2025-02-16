@@ -1,9 +1,9 @@
 <template>
-    <section>
-        <UITitle>{{ about.about_event_title }}</UITitle>
+  <section>
+    <UITitle>{{ about.about_event_title }}</UITitle>
 
-        <div class="content" v-html="about.about_event"></div>
-    </section>
+    <div class="content universal-text" v-html="about.about_event"></div>
+  </section>
 </template>
 
 <script setup>
@@ -14,7 +14,8 @@ const { profileData: about } = storeToRefs(profileStore);
 <style scoped>
 .content,
 .content *,
-.content span {
-    @apply !text-white !bg-transparent !text-lg;
+.content span,
+.content mark {
+  @apply !bg-transparent !text-lg;
 }
 </style>

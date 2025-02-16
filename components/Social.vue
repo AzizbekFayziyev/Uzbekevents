@@ -10,7 +10,7 @@
       <i
         class="fa-solid fa-envelope text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"
       ></i>
-      <h5>Email</h5>
+      <h5 class="universal-text">Email</h5>
     </NuxtLink>
 
     <NuxtLink
@@ -21,7 +21,7 @@
         class="fa-solid fa-phone text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"
       ></i>
 
-      <h5>Call</h5>
+      <h5 class="universal-text">Call</h5>
     </NuxtLink>
 
     <NuxtLink
@@ -33,7 +33,7 @@
         class="fa-regular fa-calendar text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"
       ></i>
 
-      <h5>Calendar</h5>
+      <h5 class="universal-text">Calendar</h5>
     </NuxtLink>
 
     <NuxtLink
@@ -49,7 +49,7 @@
         class="fa-regular fa-handshake text-2xl bg-hoverColor hover:bg-primary text-black hover:text-white transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"
       ></i>
 
-      <h5>Connect</h5>
+      <h5 class="universal-text">Connect</h5>
     </NuxtLink>
 
     <NuxtLink
@@ -61,7 +61,7 @@
         class="fa-brands fa-linkedin-in text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"
       ></i>
 
-      <h5>Linkedin</h5>
+      <h5 class="universal-text">Linkedin</h5>
     </NuxtLink>
 
     <NuxtLink
@@ -73,7 +73,7 @@
         class="fa-brands fa-instagram text-3xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"
       ></i>
 
-      <h5>Instagram</h5>
+      <h5 class="universal-text">Instagram</h5>
     </NuxtLink>
 
     <NuxtLink
@@ -85,7 +85,7 @@
         class="fa-brands fa-youtube text-2xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"
       ></i>
 
-      <h5>Youtube</h5>
+      <h5 class="universal-text">Youtube</h5>
     </NuxtLink>
     <!-- :class="{ 'hidden': !social?.telegram }" -->
 
@@ -98,7 +98,7 @@
         class="fa-brands fa-telegram text-3xl bg-primary hover:bg-hoverColor transition-colors rounded-full w-[55px] h-[55px] grid place-content-center"
       ></i>
 
-      <h5>Telegram</h5>
+      <h5 class="universal-text">Telegram</h5>
     </NuxtLink>
 
     <NuxtLink
