@@ -44,7 +44,12 @@
               >
                 <div class="w-full translate-y-[38px] md:translate-y-[60px]">
                   <p
-                    class="text-base sm:text-md font-medium text-white text-center sm:mb-6 mb-14 px-4 -mt-6 h-[40px]"
+                    class="text-base sm:text-md font-medium text-white text-center mb-2 px-4 sm:-mt-8 -mt-6"
+                  >
+                    <b>{{ item?.owner }}</b>
+                  </p>
+                  <p
+                    class="text-base sm:text-md font-medium text-white text-center sm:mb-6 mb-14 px-4 h-[40px]"
                   >
                     {{ item?.title }}
                   </p>
