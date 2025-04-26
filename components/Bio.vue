@@ -46,13 +46,17 @@
     </h1>
 
     <NuxtLink
+      v-if="bio?.company_url"
       class="text-secondary font-medium text-center px-1"
       :href="bio.company_url"
       target="_blank"
       >{{ bio?.company_name }}
     </NuxtLink>
 
-    <p class="font-bold mt-2 text-sm text-center px-1 universal-text">
+    <p
+      v-if="bio?.job_title"
+      class="font-bold mt-2 text-sm text-center px-1 universal-text"
+    >
       {{ bio?.job_title }}
     </p>
   </div>

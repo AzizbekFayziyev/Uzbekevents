@@ -14,23 +14,34 @@
       <Social />
 
       <!-- About section -->
-      <Divider icon-name="fa-solid fa-building" />
-      <About />
+      <div v-if="profile.about_event">
+        <Divider icon-name="fa-solid fa-building" />
+        <About />
+      </div>
 
       <!-- Clients section -->
-      <Divider icon-name="fa-solid fa-medal" />
-      <Clients />
+      <div v-if="profile.clients_title">
+        <Divider icon-name="fa-solid fa-medal" />
+        <Clients />
+      </div>
+
       <!-- Works section -->
-      <Divider icon-name="fa-solid fa-video" />
-      <Works />
+      <div v-if="profile.our_projects_title">
+        <Divider icon-name="fa-solid fa-video" />
+        <Works />
+      </div>
 
       <!-- About-person section -->
-      <Divider icon-name="fa-solid fa-user" />
-      <AboutPerson />
+      <div v-if="profile.about_person">
+        <Divider icon-name="fa-solid fa-user" />
+        <AboutPerson />
+      </div>
 
       <!-- Gallery section -->
-      <Divider icon-name="fa-solid fa-images" />
-      <Gallery />
+      <div v-if="profile.gallery_title">
+        <Divider icon-name="fa-solid fa-images" />
+        <Gallery />
+      </div>
 
       <!-- Share -->
       <Divider icon-name="fa-solid fa-share-from-square" />
@@ -49,6 +60,8 @@
 </template>
 
 <script setup>
+import { Fragment } from "vue/jsx-runtime";
+
 const { params } = useRoute();
 
 // Stores
@@ -99,6 +112,8 @@ onMounted(() => {
   );
 });
 
+console.log(profile.value);
+
 // Seo
 useHead({
   title:
@@ -107,7 +122,7 @@ useHead({
   meta: [
     {
       name: "description",
-      content: profile?.value?.about_person.replace(/<[^>]+>/g, "") || "",
+      content: profile?.value?.about_event.replace(/<[^>]+>/g, "") || "",
     },
     {
       name: "og:title",
@@ -117,7 +132,7 @@ useHead({
     },
     {
       name: "og:description",
-      content: profile?.value?.about_person.replace(/<[^>]+>/g, "") || "",
+      content: profile?.value?.about_event.replace(/<[^>]+>/g, "") || "",
     },
     { name: "og:image", content: profile?.value?.profile_image || "/logo.png" },
     { name: "og:image:width", content: "1200" },
